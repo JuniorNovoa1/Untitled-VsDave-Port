@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="dave.png">
+<SubTexture name="splitathon0000" x="503" y="787" width="218" height="320" frameX="0" frameY="0" frameWidth="188" frameHeight="290" />
+<SubTexture name="annoyed0000" x="797" y="0" width="218" height="320" frameX="0" frameY="0" frameWidth="188" frameHeight="290" />
+<SubTexture name="erm0000" x="797" y="320" width="217" height="320" frameX="0" frameY="0" frameWidth="187" frameHeight="290" />
+<SubTexture name="furious0000" x="1015" y="0" width="277" height="320" frameX="0" frameY="0" frameWidth="247" frameHeight="290" />
+<SubTexture name="happy0000" x="1015" y="320" width="218" height="320" frameX="0" frameY="0" frameWidth="188" frameHeight="290" />
+<SubTexture name="phone0000" x="721" y="787" width="407" height="294" frameX="-37" frameY="-86" frameWidth="414" frameHeight="350" />
+<SubTexture name="postMaze0000" x="0" y="787" width="226" height="320" frameX="0" frameY="0" frameWidth="196" frameHeight="290" />
+<SubTexture name="shocked0000" x="226" y="787" width="277" height="320" frameX="0" frameY="0" frameWidth="247" frameHeight="290" />
+<SubTexture name="scared0000" x="266" y="0" width="265" height="393" frameX="0" frameY="0" frameWidth="236" frameHeight="364" />
+<SubTexture name="scared0001" x="0" y="0" width="266" height="394" frameX="0" frameY="0" frameWidth="236" frameHeight="364" />
+<SubTexture name="scared0002" x="531" y="0" width="266" height="393" frameX="0" frameY="0" frameWidth="236" frameHeight="364" />
+<SubTexture name="scared0003" x="0" y="394" width="264" height="393" frameX="0" frameY="0" frameWidth="236" frameHeight="364" />
+<SubTexture name="scared3d0000" x="264" y="394" width="336" height="372" frameX="0" frameY="0" frameWidth="306" frameHeight="342" />
+</TextureAtlas>

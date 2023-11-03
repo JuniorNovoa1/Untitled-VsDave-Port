@@ -1,0 +1,49 @@
+{
+	"songs": [
+		[
+			"Blocked",
+			"bambi",
+			[
+				37,
+				191,
+				55
+			]
+		],
+		[
+			"Corn-Theft",
+			"bambi",
+			[
+				37,
+				191,
+				55
+			]
+		],
+		[
+			"Maze",
+			"bambi",
+			[
+				37,
+				191,
+				55
+			]
+		]
+	],
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"weekCharacters": [
+		"dad",
+		"bf",
+		"gf"
+	],
+	"storyName": "Unnamed VsDave Port",
+	"weekName": "Unnamed VsDave Port",
+	"difficulties": "normal",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"hideStoryMode": true,
+	"weekBefore": "week7",
+	"startUnlocked": true
+}

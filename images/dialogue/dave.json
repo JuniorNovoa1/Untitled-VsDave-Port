@@ -1,0 +1,129 @@
+{
+	"dialogue_pos": "left",
+	"position": [
+		200,
+		130
+	],
+	"no_antialiasing": false,
+	"scale": 1.6,
+	"animations": [
+		{
+			"idle_offsets": [
+				0,
+				0
+			],
+			"anim": "scared",
+			"loop_offsets": [
+				0,
+				0
+			],
+			"idle_name": "scared0",
+			"loop_name": "scared0"
+		},
+		{
+			"idle_offsets": [
+				0,
+				0
+			],
+			"anim": "furious",
+			"loop_offsets": [
+				0,
+				0
+			],
+			"idle_name": "furious",
+			"loop_name": "furious"
+		},
+		{
+			"idle_offsets": [
+				0,
+				0
+			],
+			"anim": "postMaze",
+			"loop_offsets": [
+				0,
+				0
+			],
+			"idle_name": "postMaze",
+			"loop_name": "postMaze"
+		},
+		{
+			"idle_offsets": [
+				0,
+				0
+			],
+			"anim": "splitathon",
+			"loop_offsets": [
+				0,
+				0
+			],
+			"idle_name": "splitathon",
+			"loop_name": "splitathon"
+		},
+		{
+			"idle_offsets": [
+				0,
+				0
+			],
+			"anim": "erm",
+			"loop_offsets": [
+				0,
+				0
+			],
+			"idle_name": "erm",
+			"loop_name": "erm"
+		},
+		{
+			"idle_offsets": [
+				0,
+				0
+			],
+			"anim": "happy",
+			"loop_offsets": [
+				0,
+				0
+			],
+			"idle_name": "happy",
+			"loop_name": "happy"
+		},
+		{
+			"idle_offsets": [
+				120,
+				80
+			],
+			"anim": "phone",
+			"loop_offsets": [
+				120,
+				80
+			],
+			"idle_name": "phone",
+			"loop_name": "phone"
+		},
+		{
+			"idle_offsets": [
+				0,
+				0
+			],
+			"anim": "shocked",
+			"loop_offsets": [
+				0,
+				0
+			],
+			"idle_name": "shocked",
+			"loop_name": "shocked"
+		},
+		{
+			"loop_offsets": [
+				50,
+				0
+			],
+			"anim": "scared-3d",
+			"idle_offsets": [
+				50,
+				0
+			],
+			"loop_name": "scared3d0",
+			"idle_name": "scared3d0"
+		}
+	],
+	"image": "dave/dave"
+}

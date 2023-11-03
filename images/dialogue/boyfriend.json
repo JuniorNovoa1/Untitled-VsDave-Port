@@ -1,0 +1,63 @@
+{
+	"position": [
+		20,
+		110
+	],
+	"dialogue_pos": "right",
+	"scale": 1.6,
+	"image": "bf/bf",
+	"animations": [
+		{
+			"loop_offsets": [
+				0,
+				0
+			],
+			"anim": "happy",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"loop_name": "anims0001",
+			"idle_name": "anims0001"
+		},
+		{
+			"loop_offsets": [
+				0,
+				0
+			],
+			"anim": "upset",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"loop_name": "anims0003",
+			"idle_name": "anims0003"
+		},
+		{
+			"loop_offsets": [
+				0,
+				0
+			],
+			"anim": "ready",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"loop_name": "anims0002",
+			"idle_name": "anims0002"
+		},
+		{
+			"loop_offsets": [
+				0,
+				0
+			],
+			"anim": "confused",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"loop_name": "anims0000",
+			"idle_name": "anims0000"
+		}
+	]
+}

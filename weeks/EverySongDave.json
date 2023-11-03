@@ -1,0 +1,58 @@
+{
+	"songs": [
+		[
+			"Warmup",
+			"dave",
+			[
+				15,
+				95,
+				255
+			]
+		],
+		[
+			"House",
+			"dave",
+			[
+				15,
+				95,
+				255
+			]
+		],
+		[
+			"Insanity",
+			"dave-annoyed",
+			[
+				15,
+				95,
+				255
+			]
+		],
+		[
+			"Polygonized",
+			"dave-angey",
+			[
+				130,
+				47,
+				42
+			]
+		]
+	],
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"weekCharacters": [
+		"dad",
+		"bf",
+		"gf"
+	],
+	"storyName": "Unnamed VsDave Port",
+	"weekName": "Unnamed VsDave Port",
+	"difficulties": "normal",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"hideStoryMode": true,
+	"weekBefore": "week7",
+	"startUnlocked": true
+}

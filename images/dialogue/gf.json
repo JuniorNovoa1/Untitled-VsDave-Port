@@ -1,0 +1,64 @@
+{
+	"dialogue_pos": "right",
+	"position": [
+		0,
+		100
+	],
+	"no_antialiasing": false,
+	"scale": 1.6,
+	"animations": [
+		{
+			"idle_offsets": [
+				0,
+				0
+			],
+			"anim": "happy",
+			"loop_offsets": [
+				0,
+				0
+			],
+			"idle_name": "happy",
+			"loop_name": "happy"
+		},
+		{
+			"idle_offsets": [
+				0,
+				0
+			],
+			"anim": "cheer",
+			"loop_offsets": [
+				0,
+				0
+			],
+			"idle_name": "cheer",
+			"loop_name": "cheer"
+		},
+		{
+			"idle_offsets": [
+				0,
+				0
+			],
+			"anim": "confused",
+			"loop_offsets": [
+				0,
+				0
+			],
+			"idle_name": "confused",
+			"loop_name": "confused"
+		},
+		{
+			"idle_offsets": [
+				0,
+				0
+			],
+			"anim": "what",
+			"loop_offsets": [
+				0,
+				0
+			],
+			"idle_name": "what",
+			"loop_name": "what"
+		}
+	],
+	"image": "gf/gf"
+}

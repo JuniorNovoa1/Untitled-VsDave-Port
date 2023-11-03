@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="gf.png">
+<SubTexture name="cheer0000" x="0" y="0" width="268" height="289" frameX="-231" frameY="-11" frameWidth="480" frameHeight="270" />
+<SubTexture name="confused0000" x="268" y="0" width="265" height="276" frameX="-239" frameY="-24" frameWidth="480" frameHeight="270" />
+<SubTexture name="happy0000" x="533" y="0" width="265" height="276" frameX="-239" frameY="-24" frameWidth="480" frameHeight="270" />
+<SubTexture name="what0000" x="0" y="289" width="265" height="276" frameX="-239" frameY="-24" frameWidth="480" frameHeight="270" />
+</TextureAtlas>
