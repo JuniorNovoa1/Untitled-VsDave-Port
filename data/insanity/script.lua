@@ -34,8 +34,8 @@ function onStepHit()
 	end
 	if curStep == 708 then
 		setProperty("defaultCamZoom", 0.8)
-		playAnim("dad", "um", true)
 		setProperty("dad.skipDance", true)
+		playAnim("dad", "um", true)
 	end
 	if curStep == 1176 then
 		playSound("static")

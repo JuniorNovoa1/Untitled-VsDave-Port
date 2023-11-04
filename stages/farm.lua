@@ -5,13 +5,15 @@ local time = 70;
 --to my future self its the --doTweenColor function that fucks up the colors
 
 function onCreate()
-    --nightColor = rgbToHex('FF878787');
-    --sunsetColor = rgbToHex(255, 143, 178);
+    local skyType = "sky"
+    --'sky_night' : stageName == 'bambiFarmSunset' ? 'sky_sunset'
+    if string.lower(songName) == "indignancy" or string.lower(songName) == "splitathon" or string.lower(songName) == "mealie" or string.lower(songName) == "shredder" then
+        setDataFromSave("UntitledVsDavePortSettings", "stageName", "bambifarmnight")
+        skyType = "sky_night";
+    end
     nightColor = getColorFromHex('0xFF878787');
-    --sunsetColor = getColorFromHex('FF77FF');
 
-    makeLuaSprite('SKY', 'backgrounds/shared/sky', -600, -200)
-    setProperty('SKY.antialiasing', getPropertyFromClass('ClientPrefs', 'globalAntialiasing'))
+    makeLuaSprite('SKY', 'backgrounds/shared/'..skyType, -600, -200)
     setScrollFactor('SKY', 0.6, 0.6)
     updateHitbox('SKY')
     if string.lower(songName) == 'maze' then
@@ -20,7 +22,6 @@ function onCreate()
     addLuaSprite('SKY', false)
 
     makeLuaSprite('SUNSETBG', 'backgrounds/shared/sky_sunset', -600, -200)
-    setProperty('SUNSETBG.antialiasing', getPropertyFromClass('ClientPrefs', 'globalAntialiasing'))
     setScrollFactor('SUNSETBG', 0.6, 0.6)
     setProperty('SUNSETBG.alpha', 0)
     updateHitbox('SUNSETBG')
@@ -30,53 +31,44 @@ function onCreate()
     addLuaSprite('SUNSETBG', false)
 
     makeLuaSprite('NIGHTBG', 'backgrounds/shared/sky_night', -600, -200)
-    setProperty('NIGHTBG.antialiasing', getPropertyFromClass('ClientPrefs', 'globalAntialiasing'))
     setScrollFactor('NIGHTBG', 0.6, 0.6)
     setProperty('NIGHTBG.alpha', 0)
-    --doTweenAlpha('moonRising', 'NIGHTBG', 1, time)
     addLuaSprite('NIGHTBG', false)
 
     makeLuaSprite('flatgrass', 'backgrounds/farm/gm_flatgrass', 350, 75)
-    setProperty('flatgrass.antialiasing', getPropertyFromClass('ClientPrefs', 'globalAntialiasing'))
     setGraphicSize('flatgrass', getProperty('flatgrass.width') * 0.34)
     setScrollFactor('flatgrass', 0.65, 0.65)
-    --doTweenColor('flatgrass', 'flatgrass', sunsetColor, time)
     if not lowQuality then
         addLuaSprite('flatgrass', false)
     end
 
     makeLuaSprite('hills', 'backgrounds/farm/orangey hills', -173, 100)
-    setProperty('hills.antialiasing', getPropertyFromClass('ClientPrefs', 'globalAntialiasing'))
     setScrollFactor('hills', 0.65, 0.65)
-    --doTweenColor('hills', 'hills', sunsetColor, time)
     if not lowQuality then
         addLuaSprite('hills', false)
     end
 
     makeLuaSprite('farmHouse', 'backgrounds/farm/funfarmhouse', 350, 75)
-    setProperty('farmHouse.antialiasing', getPropertyFromClass('ClientPrefs', 'globalAntialiasing'))
     setGraphicSize('farmHouse', getProperty('farmHouse.width') * 0.9)
     setScrollFactor('farmHouse', 0.7, 0.7)
-    --doTweenColor('farmHouse', 'farmHouse', sunsetColor, time)
     addLuaSprite('farmHouse', false)
 
     makeLuaSprite('grassLand', 'backgrounds/farm/grass lands', -600, 500)
-    setProperty('grassLand.antialiasing', getPropertyFromClass('ClientPrefs', 'globalAntialiasing'))
-    --doTweenColor('grassLand', 'grassLand', sunsetColor, time)
     addLuaSprite('grassLand', false)
     
     makeLuaSprite('cornFence', 'backgrounds/farm/cornFence', -400, 200)
-    setProperty('cornFence.antialiasing', getPropertyFromClass('ClientPrefs', 'globalAntialiasing'))
-    --doTweenColor('cornFence', 'cornFence', sunsetColor, time)
     if not lowQuality then
         addLuaSprite('cornFence', false)
     end
 
     makeLuaSprite('cornFence2', 'backgrounds/farm/cornFence2', 1100, 200)
-    setProperty('cornFence2.antialiasing', getPropertyFromClass('ClientPrefs', 'globalAntialiasing'))
-    --doTweenColor('cornFence2', 'cornFence2', sunsetColor, time)
     if not lowQuality then
         addLuaSprite('cornFence2', false)
+    end
+
+    makeLuaSprite('picnic', 'backgrounds/farm/picnic_towel_thing', 1050, 650)
+    if not lowQuality and string.lower(songName) == "splitathon" then
+        addLuaSprite('picnic', false)
     end
 
     local daBag = 'backgrounds/farm/cornbag';
@@ -85,38 +77,36 @@ function onCreate()
         daBag = 'backgrounds/farm/popeye';
     end
     makeLuaSprite('cornBag', daBag, 1200, 550)
-    setProperty('cornBag.antialiasing', getPropertyFromClass('ClientPrefs', 'globalAntialiasing'))
-    --doTweenColor('cornBag', 'cornBag', sunsetColor, time)
     if not lowQuality then
         addLuaSprite('cornBag', false)
     end
 
     makeLuaSprite('sign', 'backgrounds/farm/sign', 0, 350)
-    setProperty('sign.antialiasing', getPropertyFromClass('ClientPrefs', 'globalAntialiasing'))
-    --doTweenColor('sign', 'sign', sunsetColor, time)
     if not lowQuality then
         addLuaSprite('sign', false)
     end
+    if string.lower(songName) == 'maze' then
+        makeLuaSprite('magentaBGScreen', '', 0, 0)
+        makeGraphic('magentaBGScreen', '1280', '720', sunsetColor)
+        scaleObject('magentaBGScreen', 5, 5)
+        screenCenter('magentaBGScreen', 'x')
+        screenCenter('magentaBGScreen', 'y')
+        setProperty('magentaBGScreen.alpha', 0)
+        updateHitbox('magentaBGScreen')
+        addLuaSprite('magentaBGScreen', true)
     
-    makeLuaSprite('magentaBGScreen', '', 0, 0)
-    makeGraphic('magentaBGScreen', '1280', '720', sunsetColor)
-    setProperty('magentaBGScreen.antialiasing', getPropertyFromClass('ClientPrefs', 'globalAntialiasing'))
-    scaleObject('magentaBGScreen', 5, 5)
-    screenCenter('magentaBGScreen', 'x')
-    screenCenter('magentaBGScreen', 'y')
-    setProperty('magentaBGScreen.alpha', 0)
-    updateHitbox('magentaBGScreen')
-    addLuaSprite('magentaBGScreen', true)
+        makeLuaSprite('blackBGScreen', '', 0, 0)
+        makeGraphic('blackBGScreen', '1280', '720', nightColor)
+        scaleObject('blackBGScreen', 5, 5)
+        screenCenter('blackBGScreen', 'x')
+        screenCenter('blackBGScreen', 'y')
+        setProperty('blackBGScreen.alpha', 0)
+        updateHitbox('blackBGScreen')
+        addLuaSprite('blackBGScreen', true)
+    end
 
-    makeLuaSprite('blackBGScreen', '', 0, 0)
-    makeGraphic('blackBGScreen', '1280', '720', nightColor)
-    setProperty('blackBGScreen.antialiasing', getPropertyFromClass('ClientPrefs', 'globalAntialiasing'))
-    scaleObject('blackBGScreen', 5, 5)
-    screenCenter('blackBGScreen', 'x')
-    screenCenter('blackBGScreen', 'y')
-    setProperty('blackBGScreen.alpha', 0)
-    updateHitbox('blackBGScreen')
-    addLuaSprite('blackBGScreen', true)
+    setDataFromSave("UntitledVsDavePortSettings", "backgroundSprites", {"SKY", "flatgrass", "hills", "farmHouse", "grassLand", "cornFence", "cornFence2", "picnic", "cornBag", "sign"});
+	callOnLuas("setBackgroundColor", {true})
 end
 
 local amount = 0.35;

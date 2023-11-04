@@ -2,17 +2,33 @@ local textOptionsArray = {};
 local textInLanguages = {};
 
 function onCreate()
-	local textOptions = getTextFromFile("options.txt", false)
+	local textOptions = getTextFromFile("defaultOptions.txt", false)
 	local curCharacters = "";
-	for i = 1, #textOptions do
-		if textOptions:sub(i, i) == "," then
-			textOptionsArray[#textOptionsArray + 1] = curCharacters;
-			curCharacters = "";
-		else
-			local currentCharacertsy = textOptions:sub(i, i);
-			curCharacters = curCharacters..currentCharacertsy;
+	if checkFileExists(currentModDirectory.."/options.txt", false) then
+		textOptions = getTextFromFile("options.txt", false)
+		for i = 1, #textOptions do
+			if textOptions:sub(i, i) == "," then
+				curCharacters = string.gsub(curCharacters, "", "")
+				textOptionsArray[#textOptionsArray + 1] = curCharacters;
+				curCharacters = "";
+			else
+				local currentCharacertsy = textOptions:sub(i, i);
+				curCharacters = curCharacters..currentCharacertsy;
+			end
+		end
+	else
+		for i = 1, #textOptions do
+			if textOptions:sub(i, i) == "," then
+				curCharacters = string.gsub(curCharacters, "", "")
+				textOptionsArray[#textOptionsArray + 1] = curCharacters;
+				curCharacters = "";
+			else
+				local currentCharacertsy = textOptions:sub(i, i);
+				curCharacters = curCharacters..currentCharacertsy;
+			end
 		end
 	end
+
 	setLanguages()
 	initSaveData("UntitledVsDavePortSettings", 'UntitledVsDavePort')
 	--settings

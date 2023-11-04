@@ -1,4 +1,4 @@
-local options = {"Language", "Compatible mode", "Eyesores"}
+local options = {"Language", "Compatible mode", "Eyesores", "Character Select"}
 local textOptionsArray = {};
 local curSelectedOption = 1;
 local curSelectedOptionUpDown = 1;
@@ -6,20 +6,35 @@ local curSelectedOptionUpDown = 1;
 local selectAbleOptions = {--1. option name. 2. options
 	["language"] = {"en-US", "es-US", "pt-br"},
 	["compatible mode"] = {"true", "false"},
-	["eyesores"] = {"true", "false"}
+	["eyesores"] = {"true", "false"},
+	["character select"] = {"true", "false"}
 }
 
 function onCreate()
-	local textOptions = getTextFromFile("options.txt", false)
+	local textOptions = getTextFromFile("defaultOptions.txt", false)
 	local curCharacters = "";
-	for i = 1, #textOptions do
-		if textOptions:sub(i, i) == "," then
-			curCharacters = string.gsub(curCharacters, "", "")
-			textOptionsArray[#textOptionsArray + 1] = curCharacters;
-			curCharacters = "";
-		else
-			local currentCharacertsy = textOptions:sub(i, i);
-			curCharacters = curCharacters..currentCharacertsy;
+	if checkFileExists(currentModDirectory.."/options.txt", false) then
+		textOptions = getTextFromFile("options.txt", false)
+		for i = 1, #textOptions do
+			if textOptions:sub(i, i) == "," then
+				curCharacters = string.gsub(curCharacters, "", "")
+				textOptionsArray[#textOptionsArray + 1] = curCharacters;
+				curCharacters = "";
+			else
+				local currentCharacertsy = textOptions:sub(i, i);
+				curCharacters = curCharacters..currentCharacertsy;
+			end
+		end
+	else
+		for i = 1, #textOptions do
+			if textOptions:sub(i, i) == "," then
+				curCharacters = string.gsub(curCharacters, "", "")
+				textOptionsArray[#textOptionsArray + 1] = curCharacters;
+				curCharacters = "";
+			else
+				local currentCharacertsy = textOptions:sub(i, i);
+				curCharacters = curCharacters..currentCharacertsy;
+			end
 		end
 	end
 

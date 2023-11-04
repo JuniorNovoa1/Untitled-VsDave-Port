@@ -1,0 +1,100 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": true,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "splitathon idle0"
+		},
+		{
+			"offsets": [
+				42,
+				-7
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "splitathon left"
+		},
+		{
+			"offsets": [
+				-90,
+				3
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "splitathon right"
+		},
+		{
+			"offsets": [
+				-37,
+				-19
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "splitathon down"
+		},
+		{
+			"offsets": [
+				-20,
+				42
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "splitathon up"
+		},
+		{
+			"offsets": [
+				-29,
+				7
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "yummyCornLol",
+			"indices": [],
+			"name": "splitathon corn"
+		},
+		{
+			"offsets": [
+				-32,
+				1
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "umWhatIsHappening",
+			"indices": [],
+			"name": "splitathon idle 2"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "splitathon/Splitathon_Bambi",
+	"position": [
+		30, 
+		85
+	],
+	"healthicon": "bambi-new",
+	"flip_x": false,
+	"healthbar_colors": [
+		37,
+		191,
+		55
+	],
+	"camera_position": [
+		0,
+		0
+	],
+	"sing_duration": 4,
+	"scale": 1
+}

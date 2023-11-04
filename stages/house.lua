@@ -2,15 +2,6 @@ local skyType = 'sky';
 local assetType = '';
 
 function onCreate()
-	--[[var variantColor = getBackgroundColor(stageName);
-	if (stageName != 'daveHouse_night')
-	{
-		stageHills.color = variantColor;
-		grassbg.color = variantColor;
-		gate.color = variantColor;
-		stageFront.color = variantColor;
-	}--]]
-
 	makeLuaSprite('bg', 'backgrounds/shared/'..skyType, -600, -300);
 	setScrollFactor("bg", 0.6, 0.6)
 	addLuaSprite("bg", false)
@@ -46,6 +37,10 @@ function onCreate()
 		setShaderFloat('bg2', 'uFrequency', 5)
 		setShaderFloat('bg2', 'uSpeed', 2)
 	end
+
+	--curStage
+	setDataFromSave("UntitledVsDavePortSettings", "backgroundSprites", {"bg", "stageHills", "grassbg", "gate", "stageFront"});
+	callOnLuas("setBackgroundColor", {true})
 end
 
 local elapsedTime = 0.0;
