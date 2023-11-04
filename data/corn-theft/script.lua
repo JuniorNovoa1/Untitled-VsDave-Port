@@ -46,8 +46,8 @@ function onStepHit()
 	end
 	if curStep == 1033 then
 		callOnLuas("createDialogue", {"Bye Baa!", 0.02, 0.3, 45, false})
-		doTweenAlpha("dad", "dad", 0, (crochet / 1000) * 6, "")
-		doTweenAlpha("black", "black", 0, (crochet / 1000) * 6, "")
+		doTweenAlpha("dad", "dad", 0, (stepCrochet / 1000) * 6, "")
+		doTweenAlpha("black", "black", 0, (stepCrochet / 1000) * 6, "")
 		runHaxeCode([[
 			FlxTween.num(game.defaultCamZoom, game.defaultCamZoom + 0.2, (Conductor.stepCrochet / 1000) * 6, {}, function(newValue)
 			{

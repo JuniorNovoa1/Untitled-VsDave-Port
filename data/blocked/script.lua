@@ -64,7 +64,7 @@ function onStepHit()
 		setProperty("defaultCamZoom", getProperty("defaultCamZoom") + 0.3)
 	end
 	if curStep == 1200 then
-		doTweenAlpha("black", "black", 0.7, crochet / 1000 * 8, "")
+		doTweenAlpha("black", "black", 0.7, (stepCrochet / 1000) * 8, "")
 	end
 	if curStep == 1216 then
 		cameraFlash("hud", "FFFFFF", 0.5)
