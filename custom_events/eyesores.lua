@@ -19,10 +19,7 @@ function enableEyeSores(thing)
    setShaderBool("PulseShaderSpr", "uEnabled", thing)
 end
 function onEvent(n)
-   if n == 'eyesores' and not getDataFromSave("UntitledVsDavePortSettings", "eyesores") then
-      if not shadersEnabled or not getDataFromSave('UnNamedGapplePortSettings', 'epilepsy', false) then
-         return;
-      end
+   if n == 'eyesores' and getDataFromSave("UntitledVsDavePortSettings", "eyesores") and shadersEnabled then
       isEnabled = not isEnabled
       enableEyeSores(isEnabled)
    end
@@ -34,7 +31,7 @@ function onUpdate()
 
     if getShaderBool("PulseShaderSpr", "uEnabled") then
       setShaderFloat("PulseShaderSpr", "uampmul", 0.5)
-      if getDataFromSave('UnNamedGapplePortSettings', 'screenshake', true) then
+      if getDataFromSave('UntitledVsDavePortSettings', 'screenShake', true) then
 		   runHaxeCode[[
 			   FlxG.camera.shake(0.010, 0.010);
 		   ]]

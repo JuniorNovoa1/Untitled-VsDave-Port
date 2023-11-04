@@ -1,0 +1,56 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"fps": 24,
+			"anim": "sad",
+			"indices": [],
+			"name": "gf sad"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"fps": 24,
+			"anim": "danceLeft",
+			"indices": [],
+			"name": "idle gf"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"fps": 24,
+			"anim": "danceRight",
+			"indices": [],
+			"name": "idle gf"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/3d_gf",
+	"position": [
+		-50, 
+		-160
+	],
+	"healthicon": "gf",
+	"flip_x": false,
+	"healthbar_colors": [
+		165,
+		0,
+		77
+	],
+	"camera_position": [
+		0,
+		0
+	],
+	"sing_duration": 4,
+	"scale": 1
+}

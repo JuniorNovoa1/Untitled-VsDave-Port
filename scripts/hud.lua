@@ -91,30 +91,57 @@ end
 
 function goodNoteHit(membersIndex, noteData, noteType, isSustainNote)
 	runHaxeCode([[
-	game.scoreTxtTween.cancel();
-	game.scoreTxt.scale.x = 1;
-	game.scoreTxt.scale.y = 1;
+		game.scoreTxtTween.cancel();
+		game.scoreTxt.scale.x = 1;
+		game.scoreTxt.scale.y = 1;
 	]])
 end
 
 local inFiveNights = false;
 
+function onCountdownTick(swagCounter)
+	if swagCounter == 4 and getDataFromSave("UntitledVsDavePortSettings", "hasShapeNotes") then
+		local warningThinmg = "shapeNoteWarning";
+		if inFiveNights then warningThinmg = "doorWarning"; end
+		makeLuaSprite("shapeNoteWarning", "ui/"..warningThinmg, 0, screenHeight * 2)
+		setObjectCamera("shapeNoteWarning", 'hud')
+		setProperty("shapeNoteWarning.antialiasing", false)
+		setProperty("shapeNoteWarning.alpha", 0)
+		addLuaSprite("shapeNoteWarning", false)
+
+		doTweenAlpha("shapeNoteWarning1", "shapeNoteWarning", 1, 1, "")
+		doTweenY("shapeNoteWarning2", "shapeNoteWarning", 450, 1, "backOut")
+		runTimer("shapeNoteWarning", 3, 1)
+	end
+end
+
+function onTimerCompleted(tag, loops, loopsLeft)
+	if tag == "shapeNoteWarning" then
+		doTweenAlpha("shapeNoteWarning11", "shapeNoteWarning", 0, 1, "")
+		doTweenY("shapeNoteWarning22", "shapeNoteWarning", screenHeight * 2, 1, "backIn")
+	end
+end
+
+function onTweenCompleted(tag)
+	if tag == "shapeNoteWarning22" then
+		removeLuaSprite("shapeNoteWarning", true)
+	end
+end
+
 function onBeatHit()
 	local funny = math.max(math.min(getProperty('health'),1.9),0.1)
 
-	--[[if not inFiveNights then
-		setGraphicSize('iconP12', math.floor(getProperty('iconP12.width') + (50 * (funny + 0.1))), -math.floor(getProperty('iconP12.height') - (25 * funny)))
-		setGraphicSize('iconP22', math.floor(getProperty('iconP22.width') + (50 * ((2 - funny) + 0.1))), -math.floor(getProperty('iconP22.height') - (25 * ((2 - funny) + 1))))
-	else
-		setGraphicSize('iconP22', math.floor(getProperty('iconP22.width') + (50 * funny)), math.floor(getProperty('iconP22.height') - (25 * funny)))
-		setGraphicSize('iconP12', math.floor(getProperty('iconP12.width') + (50 * ((2 - funny) + 0.1))), math.floor(getProperty('iconP12.height') - (25 * ((2 - funny) + 1))))
-	end--]]
-
-	runHaxeCode([[
+	if not inFiveNights then
+		runHaxeCode([[
 		var funny = Math.max(Math.min(game.healthBar.value, 1.9), 0.1);
 		game.getLuaObject("iconP12", false).setGraphicSize(Std.int(game.getLuaObject("iconP12", false).width + (50 * (funny + 0.1))),Std.int(game.getLuaObject("iconP12", false).height - (25 * funny)));
 		game.getLuaObject("iconP22", false).setGraphicSize(Std.int(game.getLuaObject("iconP22", false).width + (50 * ((2 - funny) + 0.1))),Std.int(game.getLuaObject("iconP22", false).height - (25 * ((2 - funny) + 0.1))));
 	]])
+	else
+		setGraphicSize('iconP22', math.floor(getProperty('iconP22.width') + (50 * funny)), math.floor(getProperty('iconP22.height') - (25 * funny)))
+		setGraphicSize('iconP12', math.floor(getProperty('iconP12.width') + (50 * ((2 - funny) + 0.1))), math.floor(getProperty('iconP12.height') - (25 * ((2 - funny) + 1))))
+	end
+	
 	local mult = 30;
 	setProperty("iconP12.x", getProperty("iconP12.x") + (funny * mult))
 	setProperty("iconP22.x", getProperty("iconP22.x") - (mult * (2 - funny) + 0.1))

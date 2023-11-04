@@ -2,6 +2,7 @@ local skyType = 'sky';
 local assetType = '';
 
 function onCreate()
+	if string.lower(songName) == 'polygonized' then skyType = "sky_night" end
 	makeLuaSprite('bg', 'backgrounds/shared/'..skyType, -600, -300);
 	setScrollFactor("bg", 0.6, 0.6)
 	addLuaSprite("bg", false)

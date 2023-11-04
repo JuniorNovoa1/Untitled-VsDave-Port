@@ -35,6 +35,7 @@ function onCreate()
 	setDataFromSave("UntitledVsDavePortSettings", "lang", textOptionsArray[1])
 	setDataFromSave("UntitledVsDavePortSettings", "compatMode", convertStringToType(textOptionsArray[2], "bool"))
 	setDataFromSave("UntitledVsDavePortSettings", "eyesores", convertStringToType(textOptionsArray[3], "bool"))
+	setDataFromSave("UntitledVsDavePortSettings", "screenShake", convertStringToType(textOptionsArray[4], "bool"))
 	--dont mess with this shit below
 	setDataFromSave("UntitledVsDavePortSettings", "textInLanguages", textInLanguages)
 	setDataFromSave("UntitledVsDavePortSettings", "defaultSettings", defaultSettings)
