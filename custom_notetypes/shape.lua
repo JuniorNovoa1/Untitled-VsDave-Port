@@ -12,9 +12,9 @@ function onCreate()
 			if getPropertyFromGroup('unspawnNotes', i, 'mustPress') then --Doesn't let Dad/Opponent notes get ignored
 				setPropertyFromGroup('unspawnNotes', i, 'ignoreNote', false); --Miss has no penalties
 			end
+			setDataFromSave("UntitledVsDavePortSettings", "hasShapeNotes", true)
 		end
 	end
-	setDataFromSave("UntitledVsDavePortSettings", "hasShapeNotes", true)
 	--debugPrint('Script started!')
 end
 

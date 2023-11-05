@@ -100,7 +100,7 @@ end
 local inFiveNights = false;
 
 function onCountdownTick(swagCounter)
-	if swagCounter == 4 and getDataFromSave("UntitledVsDavePortSettings", "hasShapeNotes") then
+	if swagCounter == 4 and getDataFromSave("UntitledVsDavePortSettings", "hasShapeNotes") == true then
 		local warningThinmg = "shapeNoteWarning";
 		if inFiveNights then warningThinmg = "doorWarning"; end
 		makeLuaSprite("shapeNoteWarning", "ui/"..warningThinmg, 0, screenHeight * 2)
@@ -143,10 +143,11 @@ function onBeatHit()
 	end
 	
 	local mult = 30;
+	local multWHYY = 17.5;
 	setProperty("iconP12.x", getProperty("iconP12.x") + (funny * mult))
 	setProperty("iconP22.x", getProperty("iconP22.x") - (mult * (2 - funny) + 0.1))
-	setProperty("iconP1.y", getProperty("iconP1.y") - (funny * mult))
-	setProperty("iconP2.y", getProperty("iconP2.y") - (mult * (2 - funny) + 0.1))
+	setProperty("iconP1.y", getProperty("iconP1.y") - (funny * multWHYY))
+	setProperty("iconP2.y", getProperty("iconP2.y") - (multWHYY * (2 - funny) + 0.1))
 
 	updateHitbox('iconP12')
 	updateHitbox('iconP22')

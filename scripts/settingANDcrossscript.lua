@@ -39,6 +39,8 @@ function onCreate()
 	--dont mess with this shit below
 	setDataFromSave("UntitledVsDavePortSettings", "textInLanguages", textInLanguages)
 	setDataFromSave("UntitledVsDavePortSettings", "defaultSettings", defaultSettings)
+	setDataFromSave("UntitledVsDavePortSettings", "hasShapeNotes", false)
+	setDataFromSave("UntitledVsDavePortSettings", "canFloat", true)
 	setDataFromSave("UntitledVsDavePortSettings", "stageName", "")
 end
 

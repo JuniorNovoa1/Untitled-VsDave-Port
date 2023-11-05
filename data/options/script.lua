@@ -1,4 +1,4 @@
-local options = {"Language", "Compatible mode", "Eyesores", "Screenshake" "Character Select"}
+local options = {"Language", "Compatible mode", "Eyesores", "Screenshake", "Character Select"}
 local textOptionsArray = {};
 local curSelectedOption = 1;
 local curSelectedOptionUpDown = 1;
@@ -7,8 +7,8 @@ local selectAbleOptions = {--1. option name. 2. options
 	["language"] = {"en-US", "es-US", "pt-br"},
 	["compatible mode"] = {"true", "false"},
 	["eyesores"] = {"true", "false"},
-	["screenshake"] = {"true", "false"}
-	["character select"] = {"true", "false"},
+	["screenshake"] = {"true", "false"},
+	["character select"] = {"true", "false"}
 }
 
 function onCreate()

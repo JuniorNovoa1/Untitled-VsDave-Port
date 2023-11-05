@@ -75,7 +75,7 @@ function splitathonExpression(character, expression)
 		splitathonCharacterExpression.playAnim("]]..expression..[[", true);
 		game.boyfriend.stunned = false;
 	]])
-	if character == "bambi" then setObjectOrder("splitathonCharacterExpression", getObjectOrder("dadGroup") + 1) else setObjectOrder("dadGroup", getObjectOrder("splitathonCharacterExpression") + 1) end 
+	if character == "bambi" then setObjectOrder("splitathonCharacterExpression", getObjectOrder("dadGroup") + 1) else setObjectOrder("splitathonCharacterExpression", getObjectOrder("dadGroup") - 1) end 
 	splitCharExpress = expression;
 	setProperty("splitathonCharacterExpression.color", getColorFromHex(getBackgroundColor(getDataFromSave("UntitledVsDavePortSettings", "stageName"))))
 end
@@ -88,25 +88,18 @@ function addSplitathonChar(character)
 end
 function throwThatBitchInThere(guyWhoComesIn, guyWhoFliesOut)
 	hasTriggeredDumbshit = true;
+
 	runHaxeCode([[
-		var guyWhoComesIn = "]]..guyWhoComesIn..[[";
-		var guyWhoFliesOut = "]]..guyWhoFliesOut..[[";
-		if (game.getLuaObject("BAMBICUTSCENEICONHURHURHUR", false) != null)
-		{
-			game.getLuaObject("BAMBICUTSCENEICONHURHURHUR", false).visible = false;
-		}
-		var BAMBICUTSCENEICONHURHURHUR = new HealthIcon(guyWhoComesIn, false);
-		BAMBICUTSCENEICONHURHURHUR.changeState(game.iconP2.getState());
-		BAMBICUTSCENEICONHURHURHUR.y = game.healthBar.y - (BAMBICUTSCENEICONHURHURHUR.height / 2);
+		var BAMBICUTSCENEICONHURHURHUR = new HealthIcon("]]..guyWhoFliesOut..[[", false);
+		BAMBICUTSCENEICONHURHURHUR.x = game.iconP2.x;
+		BAMBICUTSCENEICONHURHURHUR.y = game.iconP2.y;
 		game.add(BAMBICUTSCENEICONHURHURHUR);
-		BAMBICUTSCENEICONHURHURHUR.cameras = [game.camHUD];
-		BAMBICUTSCENEICONHURHURHUR.x = -100;
-		FlxTween.linearMotion(BAMBICUTSCENEICONHURHURHUR, -100, BAMBICUTSCENEICONHURHURHUR.y, game.iconP2.x, BAMBICUTSCENEICONHURHURHUR.y, 0.3, true, {ease: FlxEase.expoInOut});
-		new FlxTimer().start(0.3, function(timer)
-		{
-			game.iconP2.changeIcon(guyWhoComesIn);
-			BAMBICUTSCENEICONHURHURHUR.changeIcon(guyWhoFliesOut);
-			BAMBICUTSCENEICONHURHURHUR.changeState(game.iconP2.getState());
-		});
+		game.modchartSprites.set('BAMBICUTSCENEICONHURHURHUR', BAMBICUTSCENEICONHURHURHUR);
 	]])
+	setObjectOrder('BAMBICUTSCENEICONHURHURHUR', getObjectOrder('iconP2') + 1)
+	setObjectCamera("BAMBICUTSCENEICONHURHURHUR", 'hud')
+
+	doTweenX("BAMBICUTSCENEICONHURHURHURXXXXX", "BAMBICUTSCENEICONHURHURHUR", getProperty("iconP2.x") - 200, 1.5, "")
+	doTweenY("BAMBICUTSCENEICONHURHURHURwhyy", "BAMBICUTSCENEICONHURHURHUR", screenHeight * 2, 1.5, "backIn")
+	--doTweenY("BAMBICUTSCENEICONHURHURHURwhyy", "BAMBICUTSCENEICONHURHURHUR", -screenHeight, 1.5, "backIn")
 end
