@@ -6,7 +6,7 @@ function onCreate()
 			setPropertyFromGroup('unspawnNotes', i, 'texture', 'notes/NOTE_assets_Shape'); --Change texture
 			setPropertyFromGroup('unspawnNotes', i, 'hitHealth', '0.023'); --Default value is: 0.023, health gained on hit
 			setPropertyFromGroup('unspawnNotes', i, 'missHealth', '0.0475'); --Default value is: 0.0475, health lost on miss
-			setPropertyFromGroup('unspawnNotes', i, 'offset.x', '40'); --offset
+			setPropertyFromGroup('unspawnNotes', i, 'offset.x', '45'); --offset
 			setPropertyFromGroup('unspawnNotes', i, 'hitCausesMiss', false);
 
 			if getPropertyFromGroup('unspawnNotes', i, 'mustPress') then --Doesn't let Dad/Opponent notes get ignored
@@ -28,7 +28,7 @@ function onUpdatePost(elapsed)
 			if getPropertyFromGroup('notes', i, 'noteType') == 'shape' and getPropertyFromGroup('notes', i, 'isSustainNote') then 
 				setPropertyFromGroup('notes', i, 'animation.curAnim.name', colArray[getPropertyFromGroup('notes', i, 'noteData') + 1])
 			end
-			if keyboardPressed("SHIFT") then
+			if keyboardPressed("SHIFT") or keyboardPressed("SPACE") then
 				if getPropertyFromGroup('notes', i, 'noteType') == 'shape' then setPropertyFromGroup('notes', i, 'blockHit', false) setPropertyFromGroup('notes', i, 'alpha', 1) end
 			else
 				if getPropertyFromGroup('notes', i, 'noteType') ~= 'shape' then setPropertyFromGroup('notes', i, 'blockHit', false) setPropertyFromGroup('notes', i, 'alpha', 1) end

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="NOTEGH_assets.png">
+	<!-- Created with Adobe Animate version 21.0.2.37893 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	
+	<!-- Aadsta here again :3 GH/CH strums, engine offset version (originally frame offset for confirms was 73, is now 92 -->
+	
+	<!-- ABCDE Order Key: Green, Red, Yellow, Blue, Orange -->
+	<!-- ABCDE Order Key: purple, blue, Yellow, green, red -->
+	<!-- ABCDE Order Key: left, down, Yellow, up, right -->
+	<SubTexture name="left confirm0000" x="1907" y="301" width="301" height="301" pivotX="150" pivotY="150" frameX="92" frameY="92"  frameWidth="300" frameHeight="300"/>
+	<SubTexture name="left confirm0001" x="1907" y="301" width="301" height="301" frameX="92" frameY="92"  frameWidth="300" frameHeight="300"/>
+	<SubTexture name="left confirm0002" x="2208" y="301" width="301" height="301" frameX="92" frameY="92"  frameWidth="300" frameHeight="300"/>
+	<SubTexture name="left confirm0003" x="2208" y="301" width="301" height="301" frameX="92" frameY="92"  frameWidth="300" frameHeight="300"/>
+	<SubTexture name="left confirm0004" x="2509" y="301" width="301" height="301" frameX="92" frameY="92"  frameWidth="300" frameHeight="300"/>
+	<SubTexture name="left confirm0005" x="2509" y="301" width="301" height="301" frameX="92" frameY="92"  frameWidth="300" frameHeight="300"/>
+	<SubTexture name="left confirm0006" x="2810" y="301" width="301" height="301" frameX="92" frameY="92"  frameWidth="300" frameHeight="300"/>
+	<SubTexture name="left confirm0007" x="2810" y="301" width="301" height="301" frameX="92" frameY="92"  frameWidth="300" frameHeight="300"/>
+	<SubTexture name="left confirm0008" x="3111" y="301" width="301" height="301" frameX="92" frameY="92"  frameWidth="300" frameHeight="300"/>
+	<SubTexture name="pruple hold end0000" x="3412" y="301" width="51" height="64" pivotX="0" pivotY="0" frameX="69" frameY="0" frameWidth="51" frameHeight="64"/>
+	<SubTexture name="purple hold piece0000" x="3463" y="301" width="51" height="44" pivotX="0" pivotY="0" frameX="69" frameY="0" frameWidth="51" frameHeight="64"/>
+	<SubTexture name="purple0000" x="3514" y="301" width="301" height="301" pivotX="150" pivotY="150" frameX="73" frameY="73" frameWidth="300" frameHeight="300"/>
+	<SubTexture name="left press0000" x="3815" y="301" width="301" height="300" pivotX="150" pivotY="150" frameX="73" frameY="73" frameWidth="300" frameHeight="300"/>
+	<SubTexture name="arrowLEFT0000" x="4116" y="301" width="301" height="300" pivotX="150" pivotY="150" frameX="73" frameY="73" frameWidth="300" frameHeight="300"/>
+</TextureAtlas>

@@ -72,12 +72,12 @@ end
 
 function changeNoteSkin(player, skin)
 	if player == true then
-		for i = 0, 4, 1 do
+		for i = 0, 3, 1 do
 			setPropertyFromGroup('playerStrums', i, 'texture', 'notes/'..skin)
 		end
 	end
     if not player then
-		for i = 0, 4, 1 do
+		for i = 0, 3, 1 do
 			setPropertyFromGroup('opponentStrums', i, 'texture', 'notes/'..skin)
 		end
 	end

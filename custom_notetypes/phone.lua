@@ -26,6 +26,8 @@ function goodNoteHit(id, noteData, noteType, isSustainNote)
 	if noteType == 'phone' then
 		playAnim('boyfriend', 'dodge', true)
 		playAnim('dad', 'singThrow', true)
+		setProperty("boyfriend.specialAnim", true)
+		setProperty("dad.specialAnim", true)
 	end
 end
 
@@ -33,6 +35,8 @@ function noteMiss(id, direction, noteType, isSustainNote)
 	if noteType == 'phone' then
 		playAnim('dad', 'singThrow', true)
 		playAnim('boyfriend', 'hit', true)
+		setProperty("boyfriend.specialAnim", true)
+		setProperty("dad.specialAnim", true)
 		cancelTween('TWEEN NOTE '..direction) --don't crash please
 		setPropertyFromGroup('playerStrums', direction, 'alpha', 0) --instant
 		noteTweenAlpha('TWEEN NOTE '..direction, 4 + direction, 1, 7, 'expoIn')
@@ -42,5 +46,6 @@ end
 function opponentNoteHit(id, noteData, noteType, isSustainNote)
 	if noteType == 'phone' then
 		playAnim('dad', 'singSmash', true)
+		setProperty("dad.specialAnim", true)
 	end
 end

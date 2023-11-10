@@ -37,7 +37,7 @@ function onStepHit()
 	end
 	if curStep == 1152 or curStep == 1408 then
 		setProperty("defaultCamZoom", 0.9)
-		triggerEvent("Change Character", "bf", pre3dSkin)
+		triggerEvent("Change Character", "bf", "bf")
 		triggerEvent("Change Character", "gf", "gf")
 	end
 	if curBeat == 608 then
@@ -45,19 +45,28 @@ function onStepHit()
 		local backgroundSprtes = getDataFromSave("UntitledVsDavePortSettings", "backgroundSprites")
 		triggerEvent("Change Character", "dad", "dave")
 
-		cameraFlash("game", "FFFFFF", 0.25)
+		cameraFlash("hud", "FFFFFF", 0.25)
 		doTweenColor("dad", "dad", "0xFF878787", 0.6, "")
 		doTweenColor("boyfriend", "boyfriend", "0xFF878787", 0.6, "")
 		doTweenColor("gf", "gf", "0xFF878787", 0.6, "")
-		doTweenAlpha("redVoidBG", "redVoidBG", 0, 1, "")
+
+		setDataFromSave("UntitledVsDavePortSettings", "canFloat", false)
+		doTweenX("boyfrioedEWS", "boyfriend", 843 + getProperty("boyfriend.positionArray[0]"), 1, "")
+		doTweenY("boyfrioedWS", "boyfriend", 270 + getProperty("boyfriend.positionArray[1]"), 1, "")
+		doTweenX("dadfEWS", "dad", 50 + getProperty("dad.positionArray[0]"), 1, "")
+		doTweenY("dagredWS", "dad", 270 + getProperty("dad.positionArray[1]"), 1, "")
+		doTweenX("gfehs", "gf", 300 + getProperty("gf.positionArray[0]"), 1, "")
+		doTweenY("gfwdfg", "gf", -60 + getProperty("gf.positionArray[1]"), 1, "")
 
 		setProperty("boyfriend.skipDance", true)
 		setProperty("gf.skipDance", true)
 		playAnim("boyfriend", "hey", true)
 		playAnim("gf", "cheer", true)
 
-		--change arrows in the future
+		--doTweenX("", "", nil, 0.0, "")
+		--startTween("boyfriend", "boyfriend", {"X": 42, "Y": 26}, 1, "")
 
+		doTweenAlpha("redVoidBG", "redVoidBG", 0, 1, "")
 		for i = 1, #backgroundSprtes do
 			doTweenAlpha(backgroundSprtes[i], backgroundSprtes[i], 1, 1, "")
 		end

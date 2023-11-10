@@ -93,7 +93,22 @@ function setLanguages()
 		["maze_sub9"] = "Sure.",
 		["maze_sub10"] = "What you want to play?",
 		["maze_sub11"] = "You are bully me?",
-		["maze_sub12"] = "Never come back again."
+		["maze_sub12"] = "Never come back again.",
+		--shredder
+		["shred_sub1"] = "Oh my god...",
+		["shred_sub2"] = "I fucking hate you",
+		["shred_sub3"] = "Fuck ahh, I hate you so much...",
+		["shred_sub4"] = "Check your closet!",
+		["shred_sub5"] = "Check your closet!",
+		["shred_sub6"] = "Or else",
+		["shred_sub7"] = "Imma kill you like rodeo",
+		["shred_sub8"] = "Trash.",
+		["shred_sub9"] = "Like this",
+		["shred_sub10"] = "Grrrrr!",
+		["shred_sub11"] = "Check your closet motherfuckers",
+		["shred_sub12"] = "Check your closet mothafuckas!",
+		["shred_sub13"] = "That's it!",
+		["shred_sub14"] = "That's it!"
 	},
 	["es-us"] = {
 		["play_score"] = "Puntuación:",
@@ -131,7 +146,22 @@ function setLanguages()
 		["maze_sub9"] = "Bien.",
 		["maze_sub10"] = "¿Que quieres jugar?",
 		["maze_sub11"] = "¿Tu me acosas?",
-		["maze_sub12"] = "No vuelvas nunca más."
+		["maze_sub12"] = "No vuelvas nunca más.",
+		--shredder
+		["shred_sub1"] = "Oh dios mio...",
+		["shred_sub2"] = "Joder, cómo te odio.",
+		["shred_sub3"] = "Ese puto, te odio demasiado...",
+		["shred_sub4"] = "¡Revisa tu closet!",
+		["shred_sub5"] = "¡Revisa tu closet!",
+		["shred_sub6"] = "O si no",
+		["shred_sub7"] = "Te mataré y tiraré toda tu",
+		["shred_sub8"] = "Basura.",
+		["shred_sub9"] = "Así",
+		["shred_sub10"] = "¡Grrrrr!",
+		["shred_sub11"] = "Revisen sus closets concha de su madre",
+		["shred_sub12"] = "Revisen sus closets concha de su madre",
+		["shred_sub13"] = "¡Eso es todo!",
+		["shred_sub14"] = "¡Eso es todo!"
 	},
 	["pt-br"] = {
 		["play_score"] = "Pontuação:",
@@ -169,6 +199,21 @@ function setLanguages()
 		["maze_sub9"] = "Claro.",
 		["maze_sub10"] = "O que você quer jogar?",
 		["maze_sub11"] = "Você me bullying?",
-		["maze_sub12"] = "Nunca mais volte."
+		["maze_sub12"] = "Nunca mais volte.",
+		--shredder
+		["shred_sub1"] = "Ai meu deus...",
+		["shred_sub2"] = "Eu te odeio tanto",
+		["shred_sub3"] = "Aquele cara, eu te odeio tanto...",
+		["shred_sub4"] = "Olha seu armário!",
+		["shred_sub5"] = "Olha seu armário!",
+		["shred_sub6"] = "Se não",
+		["shred_sub7"] = "Eu vou te matar seu forasteiro de uma",
+		["shred_sub8"] = "Figa.",
+		["shred_sub9"] = "E isso",
+		["shred_sub10"] = "Durrrr!",
+		["shred_sub11"] = "Olha seu armário filhos da puta",
+		["shred_sub12"] = "Olha seu armário filhos da puta",
+		["shred_sub13"] = "Isso aí!",
+		["shred_sub14"] = "Isso aí!"
 	}}
 end

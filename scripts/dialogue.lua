@@ -34,15 +34,9 @@ function createDialogue(textString, typeSpeed, startTime, textSize, getFromLangu
 	]])
 	setTextFont("dialogueTxt", "comic.ttf")
 	setProperty("dialogueTxt.y", (screenHeight / 2) - 200)
-
 	setTextColor('dialogueTxt', 'FFFFFF')
 	setTextSize("dialogueTxt", textSize)
 	setTextBorder("dialogueTxt", textSize / 2, "000000")
-	--setProperty("dialogueTxt.alpha", 0)
-
-	--local timeForEach = (""..value2[1]):match("%d+%.?%d*");
-	--local showTime = (""..value2[2]):match("%d+%.?%d*");
-	--"]]..textValue:sub(iTEXT, iTEXT)..[["
 	runHaxeCode([[
 		var txt = game.modchartTexts.get('dialogueTxt');
 		game.modchartTexts.set("dialogueTxt", null);
@@ -50,6 +44,7 @@ function createDialogue(textString, typeSpeed, startTime, textSize, getFromLangu
 		var maxTxt = ]]..#textValue..[[;
 		var timeForEach = ]]..typeSpeed..[[;
 		var showTime = ]]..startTime..[[;
+		txt.alpha = 0.99999;
 
 		for (i in 0...maxTxt) {
 			new FlxTimer().start(timeForEach * i, function(tmr) {

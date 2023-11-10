@@ -2,4 +2,5 @@ Options
 EverySongDave
 EverySongBambi
 Splitathon
+EverySongFestival
 OptionsTwo

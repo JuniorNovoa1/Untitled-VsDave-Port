@@ -34,8 +34,8 @@ function onStepHit()
 	end
 	if curStep == 708 then
 		setProperty("defaultCamZoom", 0.8)
-		setProperty("dad.skipDance", true)
 		playAnim("dad", "um", true)
+		setProperty("dad.specialAnim", true)
 	end
 	if curStep == 1176 then
 		playSound("static")
@@ -57,10 +57,6 @@ function onStepHit()
 		setProperty("dadmirror.visible", false)
 		runHaxeCode([[game.iconP2.changeIcon(game.dad.curCharacter);]])
 		playAnim("dad", "um", true)
-		setProperty("dad.skipDance", true)
+		setProperty("dad.specialAnim", true)
 	end
-end
-
-function goodNoteHit(membersIndex, noteData, noteType, isSustainNote)
-	setProperty("dad.skipDance", false)
 end
