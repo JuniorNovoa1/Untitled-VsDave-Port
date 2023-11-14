@@ -1,9 +1,5 @@
 function onCreate()
 	local isGreetingsCutscene = false;
-	--[[precacheImage("festival/bambi_shredder")
-	for asset in {'bambi_spot', 'boyfriend_spot', 'ch_highway'} do
-		precacheImage('festival/shredder/'..asset);
-	end--]]
 
 	mainChars = {};
 	if string.lower(songName) == 'shredder' then
@@ -91,4 +87,8 @@ function onCreate()
 	setBlendMode("stageGlow", 'ADD')
 	playAnim("stageGlow", "glow")
 	addLuaSprite("stageGlow", false)
+
+	setDataFromSave("UntitledVsDavePortSettings", "backgroundSprites", 
+		{"bg", "flatGrass", "hills", "farmHouse", "hills", "corn", "cornGlow", "backGrass", "crowd", mainChars[1][1], mainChars[2][1], "frontGrass", "stageGlow"}
+	);
 end

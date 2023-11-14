@@ -17,10 +17,10 @@ function onUpdate() --camera now follows characters!!!!
 	dadCamIdle[1] = getMidpointX('dad') + 150 + getProperty('dad.cameraPosition[0]') + getProperty('opponentCameraOffset[0]')
 	dadCamIdle[2] = getMidpointY('dad') - 100 + getProperty('dad.cameraPosition[1]') + getProperty('opponentCameraOffset[1]')
 
-	if boyfriendName == "dave-angey" then
+	if boyfriendName == "dave-angey" or boyfriendName == "dave-festival-3d" then
 		bfCamIdle[2] = getMidpointY('boyfriend')
 	end
-	if dadName == "dave-angey" then
+	if dadName == "dave-angey" or dadName == "dave-festival-3d" then
 		dadCamIdle[2] = getMidpointY('dad')
 	end
 
