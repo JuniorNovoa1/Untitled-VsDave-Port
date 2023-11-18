@@ -1,6 +1,7 @@
 local greetingsCutscene = true;
 local hasViewed = false;
 local daveFlying = true;
+local flyingBgChars = {}
 
 function onStartCountdown()
 	if greetingsCutscene and not hasViewed then
@@ -38,7 +39,7 @@ function onTimerCompleted(tag, loops, loopsLeft)
 		runHaxeCode([[game.camGame.stopFX();]])
 		cameraFade("game", "000000", 0)
 		soundFadeOut("rumble", 1.9, 0)
-		--startDialogue("") --to do: do it
+		--startDialogue("") --to do then do it
 		runTimer("startSong", 2)
 	end
 	if tag == "startSong" then 
@@ -58,11 +59,12 @@ function onTimerCompleted(tag, loops, loopsLeft)
 		callScript("characters/dave-festival-3d", "onCreatePost")
 		addLuaScript("stages/interdimension-void", false)
 		callScript("stages/interdimension-void", "onCreate")
+		flyingBgChars = getDataFromSave("UntitledVsDavePortSettings", "flyingBgChars")
 		setProperty("boyfriend.x", getProperty("boyfriend.x") + 250)
 		setProperty("gf.x", getProperty("gf.x") + 250)
 		local backgroundSprites = getDataFromSave("UntitledVsDavePortSettings", "backgroundSprites")
 		for i = 1, #backgroundSprites do
-			setProeprty(backgroundSprites[i]..".alpha", 0)
+			setProperty(backgroundSprites[i]..".alpha", 0)
 		end
 	end
 end
@@ -73,4 +75,101 @@ function onUpdate(elapsed)
 		setProperty("dad.y", getProperty("dad.y") - (elapsed * 50))
 		setProperty("dad.angle", getProperty("dad.angle") - (elapsed * 6))
 	end
+end
+
+function onStepHit()
+	if curStep == 378 then
+		cameraFade("game", "FFFFFF", 0.3)
+	end
+	if curStep == 384 then
+		runHaxeCode([[game.camGame.stopFX();]])
+		makeLuaSprite("black", "", 0, 0)
+		makeGraphic("black", 2560, 1440, '000000')
+		setProperty("black.alpha", 0.4)
+		screenCenter("black")
+		setScrollFactor("black", 0.0, 0.0)
+		addLuaSprite("black", true)
+		setProperty("defaultCamZoom", getProperty("defaultCamZoom") + 0.2)
+		--cameraFade("game", "FFFFFF", 0.5)
+		--runHaxeCode([[game.camGame.stopFX();]])
+	end
+	if curStep == 392 then
+		runHaxeCode([[game.camGame.stopFX();]])
+	end
+	if curStep == 512 then
+		setProperty("defaultCamZoom", getProperty("defaultCamZoom") - 0.1)
+	end
+	if curStep == 639 then
+		cameraFlash("game", "FFFFFF", 0.3)
+		setProperty("defaultCamZoom", getProperty("defaultCamZoom") - 0.1)
+		doTweenAlpha("black", "black", 0, 0.5, "")
+		callScript("stages/interdimension-void", "changeInterdimensionBg", {"spike-void"})
+	end
+	if curStep == 1152 then
+		cameraFlash("game", "FFFFFF", 0.3)
+		callScript("stages/interdimension-void", "changeInterdimensionBg", {"darkSpace"})
+	
+		doTweenColor("dad", "dad", "0xFF0000FF", 1)
+		doTweenColor("gf", "gf", "0xFF0000FF", 1)
+		doTweenColor("boyfriend", "boyfriend", "0xFF0000FF", 1)
+
+		for i = 1, #flyingBgChars do
+			doTweenColor(flyingBgChars[i], flyingBgChars[i], "0xFF0000FF", 1)
+		end
+	end
+	if curStep == 1408 then
+		cameraFlash("game", "FFFFFF", 0.3)
+		callScript("stages/interdimension-void", "changeInterdimensionBg", {"hexagon-void"})
+
+		doTweenColor("dad", "dad", "FFFFFF", 1)
+		doTweenColor("gf", "gf", "FFFFFF", 1)
+		doTweenColor("boyfriend", "boyfriend", "FFFFFF", 1)
+
+		for i = 1, #flyingBgChars do
+			doTweenColor(flyingBgChars[i], flyingBgChars[i], "FFFFFF", 1)
+		end
+	end
+	if curStep == 1792 then
+		cameraFlash("game", "FFFFFF", 0.3)
+		callScript("stages/interdimension-void", "changeInterdimensionBg", {"nimbi-void"})
+	end
+	if curStep == 2176 then
+		cameraFlash("game", "FFFFFF", 0.3)
+		callScript("stages/interdimension-void", "changeInterdimensionBg", {"interdimension-void"})
+	end
+	if curStep == 2688 then
+		setProperty("defaultCamZoom", 0.7)
+		local backgroundSprites = getDataFromSave("UntitledVsDavePortSettings", "backgroundSprites")
+		for i = 1, #backgroundSprites do
+			doTweenAlpha(backgroundSprites[i], backgroundSprites[i], 1, 1)
+		end
+		for i = 1, #flyingBgChars do
+			doTweenAlpha(flyingBgChars[i], flyingBgChars[i], 0, 1)
+		end
+		doTweenAlpha("void", "interdimensionBG", 0, 1, "")
+		setDataFromSave("UntitledVsDavePortSettings", "canFloat", false)
+		cameraFlash("game", "FFFFFF", 0.25)
+		triggerEvent("Change Character", "dad", "dave-festival")
+	
+		local color = getBackgroundColor(curStage);
+		doTweenColor("dad", "dad", color, 0.6)
+		if boyfriendName ~= "tristan-golden-glowing" then doTweenColor("boyfriend", "boyfriend", color, 0.6) end
+		doTweenColor("gf", "gf", color, 0.6)
+
+		doTweenX("boyfriendXPos", "boyfriend", getProperty("boyfriend.x") - 250, 0.6, "")
+		doTweenX("gfXPos", "gf", getProperty("gf.x") - 250, 0.6, "")
+	
+		playAnim("boyfriend", "hey", true)
+		playAnim("gf", "cheer", true)
+		setProperty("boyfriend.skipDance", true)
+		setProperty("gf.skipDance", true)
+	end
+end
+
+function getBackgroundColor(stage)
+	local stageColor = "FFFFFF";
+	stage = string.lower(stage)
+	if stage == "bambifarmnight" or stage == "davehouse_night" or stage == "backyard" or stage == "bedroomnight" then stageColor = "0xFF878787" end
+	if stage == "bambifarmsunset" or stage == "davehouse_sunset" then stageColor = "FF8FB2" end
+	return stageColor;
 end

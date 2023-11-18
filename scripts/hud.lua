@@ -98,20 +98,39 @@ function goodNoteHit(membersIndex, noteData, noteType, isSustainNote)
 end
 
 local inFiveNights = false;
+local introSoundPath = {"default", ""}  --default, pixel, dave, bambi, ex, endfile name
 
 function onCountdownTick(swagCounter)
-	if swagCounter == 4 and getDataFromSave("UntitledVsDavePortSettings", "hasShapeNotes") == true then
-		local warningThinmg = "shapeNoteWarning";
-		if inFiveNights then warningThinmg = "doorWarning"; end
-		makeLuaSprite("shapeNoteWarning", "ui/"..warningThinmg, 0, screenHeight * 2)
-		setObjectCamera("shapeNoteWarning", 'hud')
-		setProperty("shapeNoteWarning.antialiasing", false)
-		setProperty("shapeNoteWarning.alpha", 0)
-		addLuaSprite("shapeNoteWarning", false)
-
-		doTweenAlpha("shapeNoteWarning1", "shapeNoteWarning", 1, 1, "")
-		doTweenY("shapeNoteWarning2", "shapeNoteWarning", 450, 1, "backOut")
-		runTimer("shapeNoteWarning", 3, 1)
+	if string.lower(songName) == 'house' or string.lower(songName) == 'insanity' or string.lower(songName) == 'polygonized' or string.lower(songName) == 'bonus-song' or string.lower(songName) == 'interdimensional' or string.lower(songName) == 'five-nights' or string.lower(songName) == 'memory' or string.lower(songName) == 'vs-dave-rap' or string.lower(songName) == 'vs-dave-rap-two' then
+		introSoundPath = {"dave", "_dave"}
+	end
+	if string.lower(songName) == 'blocked' or string.lower(songName) == 'cheating' or string.lower(songName) == 'corn-theft' or string.lower(songName) == 'glitch' or string.lower(songName) == 'maze' or string.lower(songName) == 'mealie' or string.lower(songName) == 'secret' or string.lower(songName) == 'shredder' or string.lower(songName) == 'supernovae' or string.lower(songName) == 'unfairness' then
+		introSoundPath = {"bambi", "_bambi"}
+	end
+	if string.lower(songName) == "exploitation" then
+		introSoundPath[1] = "ex";
+	end
+	if string.lower(songName) == "overdrive" then
+		introSoundPath[1] = "dave";
+	end
+	if swagCounter == 0 then playSound("introSounds/"..introSoundPath[1].."/intro3"..introSoundPath[2], 1) end
+	if swagCounter == 1 then playSound("introSounds/"..introSoundPath[1].."/intro2"..introSoundPath[2], 1) end
+	if swagCounter == 2 then playSound("introSounds/"..introSoundPath[1].."/intro1"..introSoundPath[2], 1) end
+	if swagCounter == 3 then playSound("introSounds/"..introSoundPath[1].."/introGo"..introSoundPath[2], 1) end
+	if swagCounter == 4 then
+		if getDataFromSave("UntitledVsDavePortSettings", "hasShapeNotes") == true then
+			local warningThinmg = "shapeNoteWarning";
+			if inFiveNights then warningThinmg = "doorWarning"; end
+			makeLuaSprite("shapeNoteWarning", "ui/"..warningThinmg, 0, screenHeight * 2)
+			setObjectCamera("shapeNoteWarning", 'hud')
+			setProperty("shapeNoteWarning.antialiasing", false)
+			setProperty("shapeNoteWarning.alpha", 0)
+			addLuaSprite("shapeNoteWarning", false)
+	
+			doTweenAlpha("shapeNoteWarning1", "shapeNoteWarning", 1, 1, "")
+			doTweenY("shapeNoteWarning2", "shapeNoteWarning", 450, 1, "backOut")
+			runTimer("shapeNoteWarning", 3, 1)
+		end
 	end
 end
 
