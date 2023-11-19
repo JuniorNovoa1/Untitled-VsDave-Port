@@ -23,8 +23,10 @@ end
 
 function setBackgroundColor(setCharacterColors)
 	local backgrounds = getDataFromSave("UntitledVsDavePortSettings", "backgroundSprites");
+	local stageNameder = getDataFromSave("UntitledVsDavePortSettings", "stageName")
+	if stageNameder == "" then stageNameder = string.lower(curStage); end
 	for i = 1, #backgrounds do
-		setProperty(backgrounds[i]..".color", getColorFromHex(getBackgroundColor(getDataFromSave("UntitledVsDavePortSettings", "stageName"))))
+		setProperty(backgrounds[i]..".color", getColorFromHex(getBackgroundColor(stageNameder)))
 	end
 	setCharacterColores = setCharacterColors;
 end
