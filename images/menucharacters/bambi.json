@@ -1,0 +1,11 @@
+{
+	"idle_anim": "bambi idle",
+	"image": "Menu_Bambi",
+	"position": [
+		50,
+		-60
+	],
+	"flipX": false,
+	"scale": 0.8,
+	"confirm_anim": "bambi look"
+}

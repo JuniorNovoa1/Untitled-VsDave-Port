@@ -1,0 +1,49 @@
+{
+        "songs": [
+        [
+            "supernovae",
+            "missing",
+            [
+                12,
+                181,
+                0
+            ]
+        ],
+        [
+            "glitch",
+            "missing",
+            [
+                12,
+                181,
+                0
+            ]
+        ],
+        [
+            "master",
+            "missing",
+            [
+                12,
+                181,
+                0
+            ]
+        ]
+        ],
+        "hideFreeplay": false,
+        "weekBackground": "",
+        "weekCharacters": [
+            "",
+            "",
+            ""
+        ],
+        "storyName": "???????",
+        "weekName": "??????",
+        "difficulties": "normal",
+        "freeplayColor": [
+            146,
+            113,
+            253
+        ],
+        "hideStoryMode": false,
+        "weekBefore": "???",
+        "startUnlocked": true
+    }

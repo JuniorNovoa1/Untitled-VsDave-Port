@@ -11,21 +11,21 @@
 		]
 	],
 	"hideFreeplay": false,
-	"weekBackground": "stage",
+	"weekBackground": "farmFinale",
 	"weekCharacters": [
-		"dad",
+		"daveSplit",
 		"bf",
 		"gf"
 	],
-	"storyName": "Unnamed VsDave Port",
-	"weekName": "Unnamed VsDave Port",
+	"storyName": "The Finale",
+	"weekName": "The Finale",
 	"difficulties": "normal",
 	"freeplayColor": [
 		146,
 		113,
 		253
 	],
-	"hideStoryMode": true,
+	"hideStoryMode": false,
 	"weekBefore": "week7",
 	"startUnlocked": true
 }

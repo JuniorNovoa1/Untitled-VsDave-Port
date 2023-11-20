@@ -1,0 +1,31 @@
+{
+	"songs": [
+		[
+			"Warmup",
+			"dave",
+			[
+				15,
+				95,
+				255
+			]
+		]
+	],
+	"hideFreeplay": false,
+	"weekBackground": "house",
+	"weekCharacters": [
+		"dave",
+		"bf",
+		"gf"
+	],
+	"storyName": "Dave's Funkin Class",
+	"weekName": "Dave's Funkin Class",
+	"difficulties": "normal",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"hideStoryMode": false,
+	"weekBefore": "week7",
+	"startUnlocked": true
+}

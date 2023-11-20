@@ -29,21 +29,21 @@
 		]
 	],
 	"hideFreeplay": false,
-	"weekBackground": "stage",
+	"weekBackground": "farm",
 	"weekCharacters": [
-		"dad",
+		"bambi",
 		"bf",
 		"gf"
 	],
-	"storyName": "Unnamed VsDave Port",
-	"weekName": "Unnamed VsDave Port",
+	"storyName": "Mr. Bambi’s Fun Corn Maze!",
+	"weekName": "Mr. Bambi’s Fun Corn Maze!",
 	"difficulties": "normal",
 	"freeplayColor": [
 		146,
 		113,
 		253
 	],
-	"hideStoryMode": true,
+	"hideStoryMode": false,
 	"weekBefore": "week7",
 	"startUnlocked": true
 }

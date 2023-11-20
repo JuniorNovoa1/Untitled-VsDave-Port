@@ -1,15 +1,6 @@
 {
 	"songs": [
 		[
-			"Warmup",
-			"dave",
-			[
-				15,
-				95,
-				255
-			]
-		],
-		[
 			"House",
 			"dave",
 			[
@@ -38,21 +29,21 @@
 		]
 	],
 	"hideFreeplay": false,
-	"weekBackground": "stage",
+	"weekBackground": "house",
 	"weekCharacters": [
-		"dad",
+		"dave",
 		"bf",
 		"gf"
 	],
-	"storyName": "Unnamed VsDave Port",
-	"weekName": "Unnamed VsDave Port",
+	"storyName": "Dave’s Fun Rapping Battle!",
+	"weekName": "Dave’s Fun Rapping Battle!",
 	"difficulties": "normal",
 	"freeplayColor": [
 		146,
 		113,
 		253
 	],
-	"hideStoryMode": true,
+	"hideStoryMode": false,
 	"weekBefore": "week7",
 	"startUnlocked": true
 }

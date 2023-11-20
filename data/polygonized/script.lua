@@ -1,3 +1,56 @@
+playDialogue = true;
+playEndDialogue = true;
+
+function onStartCountdown()
+	if isStoryMode and not seenCutscene then
+		if playDialogue then
+			startDialogue('dialogue', "DaveDialogue");
+			playDialogue = false;
+			return Function_Stop;
+		end
+	end
+	return Function_Continue;
+end
+
+local madeSprites = false;
+
+function onEndSong()
+	if isStoryMode then
+		if playEndDialogue then
+			if not madeSprites then
+				madeSprites = true;
+				local image = "";
+				local imagePath = "dave/endings/"
+				if string.lower(getDataFromSave("UntitledVsDavePortSettings", "lang")) ~= "en-us" then 
+					imagePath = "locale/"..getDataFromSave("UntitledVsDavePortSettings", "lang").."/images/dave/endings/";
+				end
+				if getProperty("health") >= 0.1 then
+					image = "goodEnding";
+				elseif getProperty("health") < 0.1 then
+					image = "vomit_ending";
+				else
+					image = "badEnding";
+				end
+				makeLuaSprite("languageEnding", imagePath..image, 0, 0)
+				setObjectCamera("languageEnding", "other")
+				screenCenter("languageEnding", 'xy')
+				addLuaSprite("languageEnding", false)
+			end
+			
+			return Function_Stop;
+		end
+	end
+	return Function_Continue;
+end
+
+function onUpdate(elapsed)
+	if keyboardJustPressed("ENTER") and madeSprites then
+		playEndDialogue = false;
+		runHaxeCode([[]])
+		runHaxeCode([[game.endSong();]])
+	end
+end
+
 function onCreate()
 	addCharacterToList("dave", "dad")
 	addCharacterToList("bf-3d", "bf")

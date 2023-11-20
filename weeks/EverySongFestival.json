@@ -38,21 +38,21 @@
 		]
 	],
 	"hideFreeplay": false,
-	"weekBackground": "stage",
+	"weekBackground": "festival",
 	"weekCharacters": [
-		"dad",
+		"daveFestival",
 		"bf",
 		"gf"
 	],
-	"storyName": "Unnamed VsDave Port",
-	"weekName": "Unnamed VsDave Port",
+	"storyName": "Bambi’s Corn Festival!",
+	"weekName": "Bambi’s Corn Festival!",
 	"difficulties": "normal",
 	"freeplayColor": [
 		146,
 		113,
 		253
 	],
-	"hideStoryMode": true,
+	"hideStoryMode": false,
 	"weekBefore": "week7",
 	"startUnlocked": true
 }

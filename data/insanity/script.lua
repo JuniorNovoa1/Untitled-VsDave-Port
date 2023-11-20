@@ -1,3 +1,28 @@
+playDialogue = true;
+playEndDialogue = true;
+
+function onStartCountdown()
+	if isStoryMode and not seenCutscene then
+		if playDialogue then
+			startDialogue('dialogue', "DaveDialogue");
+			playDialogue = false;
+			return Function_Stop;
+		end
+	end
+	return Function_Continue;
+end
+
+function onEndSong()
+	if isStoryMode then
+		if playEndDialogue then
+			startDialogue('dialogueEnd', "DaveDialogue");
+			playEndDialogue = false;
+			return Function_Stop;
+		end
+	end
+	return Function_Continue;
+end
+
 function ondadmirrorCreate()
 	setProperty("dadmirror.x", getProperty("dad.x") -175)
 	setProperty("dadmirror.y", getProperty("dad.y") -215)

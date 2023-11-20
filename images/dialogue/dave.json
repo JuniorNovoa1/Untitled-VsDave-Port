@@ -87,6 +87,19 @@
 		},
 		{
 			"idle_offsets": [
+				0,
+				0
+			],
+			"anim": "annoyed",
+			"loop_offsets": [
+				0,
+				0
+			],
+			"idle_name": "annoyed",
+			"loop_name": "annoyed"
+		},
+		{
+			"idle_offsets": [
 				120,
 				80
 			],
@@ -116,7 +129,7 @@
 				50,
 				0
 			],
-			"anim": "scared-3d",
+			"anim": "3d-scared",
 			"idle_offsets": [
 				50,
 				0

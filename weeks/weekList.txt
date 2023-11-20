@@ -1,6 +1,9 @@
 Options
+WarmupTutorial
 EverySongDave
 EverySongBambi
 Splitathon
 EverySongFestival
+???
+EverySongJokeBambi
 OptionsTwo
