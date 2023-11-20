@@ -1,5 +1,6 @@
-function onCreatePost() --sick ahh code
-    deleteFile(currentModDirectory.."/weeks/questionmarkweek.json", false)
+function onCreate() --sick ahh code
+    if not checkFileExists(currentModDirectory.."/weeks/questionmarkweek.json") then return; end
+    deleteFile(currentModDirectory.."/weeks/questionmarkweek.json")
     saveFile(currentModDirectory.."/weeks/EverySongJokeBambi.json", 
     [[{
         "songs": [
