@@ -1,5 +1,5 @@
 function onCreatePost() --sick ahh code
-    deleteFile(currentModDirectory.."/weeks/???.json", false)
+    deleteFile(currentModDirectory.."/weeks/questionmarkweek.json", false)
     saveFile(currentModDirectory.."/weeks/EverySongJokeBambi.json", 
     [[{
         "songs": [
