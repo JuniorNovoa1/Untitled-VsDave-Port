@@ -39,11 +39,11 @@
         "weekName": "??????",
         "difficulties": "normal",
         "freeplayColor": [
-            146,
-            113,
-            253
+			12,
+			181,
+			0
         ],
         "hideStoryMode": false,
         "weekBefore": "???",
         "startUnlocked": true
-    }
+}
