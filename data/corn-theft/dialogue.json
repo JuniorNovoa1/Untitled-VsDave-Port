@@ -1,0 +1,212 @@
+{
+	"dialogue": [
+		{
+			"sound": "dialogue/bambDialogue1",
+			"speed": 0.05,
+			"portrait": "bambi",
+			"boxState": "normal",
+			"expression": "annoyed",
+			"text": "Oh my focking god!"
+		},
+		{
+			"sound": "nill",
+			"speed": 0.05,
+			"portrait": "generic",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "INCOMING CALL FROM: DAVE"
+		},
+		{
+			"sound": "dialogue/bambDialogue2",
+			"speed": 0.05,
+			"portrait": "bambi",
+			"boxState": "normal",
+			"expression": "confused",
+			"text": "Huh? Hello?"
+		},
+		{
+			"sound": "dialogue/daveDialogue",
+			"speed": 0.05,
+			"portrait": "dave",
+			"boxState": "normal",
+			"expression": "phone",
+			"text": "Hey Bambi, it's Dave..."
+		},
+		{
+			"sound": "dialogue/bambDialogue3",
+			"speed": 0.05,
+			"portrait": "bambi",
+			"boxState": "normal",
+			"expression": "confused",
+			"text": "Why you tryna calling me?"
+		},
+		{
+			"sound": "dialogue/daveDialogue",
+			"speed": 0.05,
+			"portrait": "dave",
+			"boxState": "normal",
+			"expression": "phone",
+			"text": "Is there a chance you are currently fighting two equally as short ''Trespassers'' over corn right now?"
+		},
+		{
+			"sound": "dialogue/bambDialogue1",
+			"speed": 0.05,
+			"portrait": "bambi",
+			"boxState": "normal",
+			"expression": "annoyed",
+			"text": "Yes... Justifiably!"
+		},
+		{
+			"sound": "dialogue/daveDialogue",
+			"speed": 0.05,
+			"portrait": "dave",
+			"boxState": "normal",
+			"expression": "phone",
+			"text": "Bambi. They aren't trespassing."
+		},
+		{
+			"sound": "dialogue/bambDialogue2",
+			"speed": 0.05,
+			"portrait": "bambi",
+			"boxState": "normal",
+			"expression": "confused",
+			"text": "What?"
+		},
+		{
+			"sound": "dialogue/daveDialogue",
+			"speed": 0.05,
+			"portrait": "dave",
+			"boxState": "normal",
+			"expression": "phone",
+			"text": "I literally told you before hand I was planning on having a picnic with the two!"
+		},
+		{
+			"sound": "dialogue/bambDialogue3",
+			"speed": 0.05,
+			"portrait": "bambi",
+			"boxState": "normal",
+			"expression": "confused",
+			"text": "That doesn't make sense..."
+		},
+		{
+			"sound": "dialogue/daveDialogue",
+			"speed": 0.05,
+			"portrait": "dave",
+			"boxState": "normal",
+			"expression": "phone",
+			"text": "Bambi, listen-"
+		},
+		{
+			"sound": "dialogue/bambDialogue1",
+			"speed": 0.05,
+			"portrait": "bambi",
+			"boxState": "normal",
+			"expression": "annoyed",
+			"text": "I think I know what's going on here!"
+		},
+		{
+			"sound": "dialogue/bambDialogue2",
+			"speed": 0.05,
+			"portrait": "bambi",
+			"boxState": "normal",
+			"expression": "annoyed",
+			"text": "These aren't the friends you thought they were!"
+		},
+		{
+			"sound": "dialogue/daveDialogue",
+			"speed": 0.05,
+			"portrait": "dave",
+			"boxState": "normal",
+			"expression": "phone",
+			"text": "Bambi you've got to be kidding me-"
+		},
+		{
+			"sound": "nil",
+			"speed": 0.05,
+			"portrait": "generic",
+			"boxState": "normal",
+			"expression": "generic",
+			"text": "HANG UP"
+		},
+		{
+			"sound": "dialogue/bambDialogue3",
+			"speed": 0.05,
+			"portrait": "bambi",
+			"boxState": "normal",
+			"expression": "normal",
+			"text": "Uhhh..."
+		},
+		{
+			"sound": "dialogue/bambDialogue1",
+			"speed": 0.05,
+			"portrait": "bambi",
+			"boxState": "normal",
+			"expression": "normal",
+			"text": "Are you two using Dave invite as excuse to steal corn!?"
+		},
+		{
+			"sound": "dialogue/gfDialogue",
+			"speed": 0.05,
+			"portrait": "gf",
+			"boxState": "normal",
+			"expression": "what",
+			"text": "That's not what we're trying to do at all!"
+		},
+		{
+			"sound": "dialogue/bfDialogue",
+			"speed": 0.05,
+			"portrait": "boyfriend",
+			"boxState": "normal",
+			"expression": "confused",
+			"text": "Beep beep vroom vroom!"
+		},
+		{
+			"sound": "dialogue/bambDialogue2",
+			"speed": 0.05,
+			"portrait": "bambi",
+			"boxState": "normal",
+			"expression": "normal",
+			"text": "Ok, you know what-"
+		},
+		{
+			"sound": "dialogue/bambDialogue3",
+			"speed": 0.05,
+			"portrait": "bambi",
+			"boxState": "normal",
+			"expression": "normal",
+			"text": "Don't win this one... or... or..."
+		},
+		{
+			"sound": "dialogue/bambDialogue1",
+			"speed": 0.05,
+			"portrait": "bambi",
+			"boxState": "normal",
+			"expression": "normal",
+			"text": "I'll break my phone!"
+		},
+		{
+			"sound": "dialogue/bambDialogue2",
+			"speed": 0.05,
+			"portrait": "bambi",
+			"boxState": "normal",
+			"expression": "normal",
+			"text": "Yeah, I'll smash my phone and you'll get grounded!"
+		},
+		{
+			"sound": "dialogue/bfDialogue",
+			"speed": 0.05,
+			"portrait": "boyfriend",
+			"boxState": "normal",
+			"expression": "confused",
+			"text": "Bop..."
+		},
+		{
+			"sound": "dialogue/gfDialogue",
+			"speed": 0.05,
+			"portrait": "gf",
+			"boxState": "normal",
+			"expression": "what",
+			"text": "If that's what you consider a punishment you're a bit messed up in the head."
+		}
+	]
+}

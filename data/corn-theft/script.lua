@@ -1,3 +1,16 @@
+playDialogue = true;
+
+function onStartCountdown()
+	if isStoryMode and not seenCutscene then
+		if playDialogue then
+			startDialogue('dialogue', "DaveDialogue");
+			playDialogue = false;
+			return Function_Stop;
+		end
+	end
+	return Function_Continue;
+end
+
 function onCreate()
 	addHaxeLibrary("FlxTween", 'flixel.tweens')
 end
@@ -22,7 +35,7 @@ function onStepHit()
 		setProperty("black.alpha", 0)
 		screenCenter("black")
 		addLuaSprite("black", true)
-		doTweenAlpha("black", "black", 0.6, 1, "")
+		doTweenAlpha("black", "black", 0.6, 1 / playbackRate, "")
 		callOnLuas("makeInvisibleNotes", {true})
 		callOnLuas("createDialogue", {"ctheft_sub1", 0.02, 1})
 	end
@@ -46,8 +59,8 @@ function onStepHit()
 	end
 	if curStep == 1033 then
 		callOnLuas("createDialogue", {"Bye Baa!", 0.02, 0.3, 45, false})
-		doTweenAlpha("dad", "dad", 0, (stepCrochet / 1000) * 6, "")
-		doTweenAlpha("black", "black", 0, (stepCrochet / 1000) * 6, "")
+		doTweenAlpha("dad", "dad", 0, ((stepCrochet / 1000) * 6) / playbackRate, "")
+		doTweenAlpha("black", "black", 0, ((stepCrochet / 1000) * 6) / playbackRate, "")
 		runHaxeCode([[
 			FlxTween.num(game.defaultCamZoom, game.defaultCamZoom + 0.2, (Conductor.stepCrochet / 1000) * 6, {}, function(newValue)
 			{

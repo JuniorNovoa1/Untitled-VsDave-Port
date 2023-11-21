@@ -99,7 +99,7 @@ function throwThatBitchInThere(guyWhoComesIn, guyWhoFliesOut)
 	setObjectOrder('BAMBICUTSCENEICONHURHURHUR', getObjectOrder('iconP2') + 1)
 	setObjectCamera("BAMBICUTSCENEICONHURHURHUR", 'hud')
 
-	doTweenX("BAMBICUTSCENEICONHURHURHURXXXXX", "BAMBICUTSCENEICONHURHURHUR", getProperty("iconP2.x") - 200, 1.5, "")
-	doTweenY("BAMBICUTSCENEICONHURHURHURwhyy", "BAMBICUTSCENEICONHURHURHUR", screenHeight * 2, 1.5, "backIn")
+	doTweenX("BAMBICUTSCENEICONHURHURHURXXXXX", "BAMBICUTSCENEICONHURHURHUR", getProperty("iconP2.x") - 200, 1.5 / playbackRate, "")
+	doTweenY("BAMBICUTSCENEICONHURHURHURwhyy", "BAMBICUTSCENEICONHURHURHUR", screenHeight * 2, 1.5 / playbackRate, "backIn")
 	--doTweenY("BAMBICUTSCENEICONHURHURHURwhyy", "BAMBICUTSCENEICONHURHURHUR", -screenHeight, 1.5, "backIn")
 end

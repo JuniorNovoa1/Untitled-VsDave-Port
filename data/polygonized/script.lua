@@ -4,7 +4,7 @@ playEndDialogue = true;
 function onStartCountdown()
 	if isStoryMode and not seenCutscene then
 		if playDialogue then
-			startDialogue('dialogue', "DaveDialogue");
+			startDialogue('dialogue', "scaryAmbience");
 			playDialogue = false;
 			return Function_Stop;
 		end

@@ -2,9 +2,8 @@ local CharactersWith3D = {"dave-angey", "dave-festival-3d", "bf-3d", "gf-3d"}
 local funnyFloatyBoys = {'dave-angey', 'bambi-3d', 'expunged', 'bambi-unfair', 'exbungo', 'dave-festival-3d', 'dave-3d-recursed', 'bf-3d'}
 local canFloat = true;
 
-function onCreatePost()
-    changeNoteSkinsOnChange()
-end
+function onCreatePost() changeNoteSkinsOnChange() end
+function onCountdownTick(swagCounter) if swagCounter == 0 then changeNoteSkinsOnChange() end end
 
 local elapsedtime = 0.0;
 function onUpdate(elapsed)

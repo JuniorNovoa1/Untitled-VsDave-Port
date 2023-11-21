@@ -34,11 +34,11 @@ function onCreate()
 
 	makeLuaSprite("flatGrass", "backgrounds/festival/gm_flatgrass", 800, -100)
 	setScrollFactor("flatGrass", 0.7, 0.7)
-	addLuaSprite("flatGrass", false)
+	if not lowQuality then addLuaSprite("flatGrass", false) end
 
 	makeLuaSprite("farmHouse", "backgrounds/festival/farmHouse", -300, -150)
 	setScrollFactor("farmHouse", 0.7, 0.7)
-	addLuaSprite("farmHouse", false)
+	if not lowQuality then addLuaSprite("farmHouse", false) end
 
 	makeLuaSprite("hills", "backgrounds/festival/hills", -1000, -100)
 	setScrollFactor("hills", 0.7, 0.7)
@@ -48,14 +48,14 @@ function onCreate()
 	addAnimationByPrefix("corn", "corn", "idle", 5, true)
 	setScrollFactor("corn", 0.85, 0.85, true)
 	playAnim("corn", "corn")
-	addLuaSprite("corn", false)
+	if not lowQuality then addLuaSprite("corn", false) end
 
 	makeAnimatedLuaSprite("cornGlow", "backgrounds/festival/cornGlow", -1000, 120)
 	addAnimationByPrefix("cornGlow", "cornGlow", "idle", 5, true)
 	setScrollFactor("cornGlow", 0.85, 0.85, true)
 	setBlendMode("cornGlow", 'ADD')
 	playAnim("cornGlow", "cornGlow")
-	addLuaSprite("cornGlow", false)
+	if not lowQuality then addLuaSprite("cornGlow", false) end
 	
 	makeLuaSprite("backGrass", "backgrounds/festival/backGrass", -1000, 475)
 	setScrollFactor("backGrass", 0.85, 0.85)
@@ -86,7 +86,7 @@ function onCreate()
 	setScrollFactor("stageGlow", 0, 0)
 	setBlendMode("stageGlow", 'ADD')
 	playAnim("stageGlow", "glow")
-	addLuaSprite("stageGlow", false)
+	if not lowQuality then addLuaSprite("stageGlow", false) end
 
 	setDataFromSave("UntitledVsDavePortSettings", "backgroundSprites", 
 		{"bg", "flatGrass", "hills", "farmHouse", "hills", "corn", "cornGlow", "backGrass", "crowd", mainChars[1][1], mainChars[2][1], "frontGrass", "stageGlow"}

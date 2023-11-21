@@ -20,7 +20,7 @@ function onCreate()
 
 	makeLuaSprite('hills', 'backgrounds/backyard/hills', -1330, -432);
 	setScrollFactor("hills", 0.75, 0.75)
-	addLuaSprite("hills", false)
+	if not lowQuality then addLuaSprite("hills", false) end
 	
 	makeLuaSprite('grass', 'backgrounds/backyard/supergrass', -800, 150);
 	setScrollFactor("grass", 1, 1)
@@ -32,7 +32,7 @@ function onCreate()
 
 	makeLuaSprite('bear', "backgrounds/backyard/bearDude", -1035, -710);
 	setScrollFactor("bear", 0.95, 0.95)
-	addLuaSprite("bear", false)
+	if not lowQuality then addLuaSprite("bear", false) end
 
 	makeLuaSprite('house', "backgrounds/backyard/house", -1025, -323);
 	setScrollFactor("house", 0.95, 0.95)
@@ -40,7 +40,7 @@ function onCreate()
 	
 	makeLuaSprite('grill', "backgrounds/backyard/grill", -489, 452);
 	setScrollFactor("grill", 0.95, 0.95)
-	addLuaSprite("grill", false)
+	if not lowQuality then addLuaSprite("grill", false) end
 
 	setDataFromSave("UntitledVsDavePortSettings", "stageName", "backyard")
 	setDataFromSave("UntitledVsDavePortSettings", "backgroundSprites", {"festivalSky", "sunriseBG", "skyBG", "hills", "grass", "gates", "bear", "house", "grill"});

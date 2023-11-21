@@ -1,5 +1,22 @@
 local spotLightPart = false;
 local secondAngle = false;
+playVideo = true;
+playDialogue = true;
+
+function onStartCountdown()
+	if isStoryMode and not seenCutscene then
+		if playVideo then
+			startVideo('mazeCutscene');
+			playVideo = false;
+			return Function_Stop;
+		elseif playDialogue then
+			startDialogue('dialogue', "DaveDialogue");
+			playDialogue = false;
+			return Function_Stop;
+		end
+	end
+	return Function_Continue;
+end
 
 function onCreatePost()
 	makeLuaSprite('spotLight', 'spotLight', 0, 0)
@@ -15,6 +32,50 @@ function onCreatePost()
     if string.lower(songName) == 'maze' then
         setProperty('health', getProperty('health') - 0.2)
     end
+end
+
+local backgroundSAprites = {};
+local tweenTime = 0.0;
+function onSongStart()
+	tweenTime = sectionStartTime(25);
+	backgroundSAprites = getDataFromSave("UntitledVsDavePortSettings", "backgroundSprites")
+	for i = 1, #backgroundSAprites do
+		if i == 1 then
+			doTweenAlpha(backgroundSAprites[i].."StartTween", backgroundSAprites[i], 0, (tweenTime / 1000) / playbackRate, "")
+		elseif i == 2 then
+			doTweenAlpha(backgroundSAprites[i].."StartTween", backgroundSAprites[i], 1, (tweenTime / 1000) / playbackRate, "")
+		elseif i == 3 then
+			doTweenAlpha(backgroundSAprites[i].."StartTween", backgroundSAprites[i], 0, (tweenTime / 1000) / playbackRate, "")
+		else
+			doTweenColor(backgroundSAprites[i].."StartTween", backgroundSAprites[i], getDataFromSave("UntitledVsDavePortSettings", "sunsetColor"), (tweenTime / 1000) / playbackRate, "")
+		end
+	end
+	doTweenColor("dadStartTween", "dad", getDataFromSave("UntitledVsDavePortSettings", "sunsetColor"), (tweenTime / 1000) / playbackRate, "")
+	doTweenColor("gfStartTween", "gf", getDataFromSave("UntitledVsDavePortSettings", "sunsetColor"), (tweenTime / 1000) / playbackRate, "")
+	doTweenColor("bfStartTween", "boyfriend", getDataFromSave("UntitledVsDavePortSettings", "sunsetColor"), (tweenTime / 1000) / playbackRate, "")
+end
+
+function onTweenCompleted(tag)
+	for i = 1, #backgroundSAprites do
+		if i == 2 and tag == backgroundSAprites[i].."StartTween"then
+			doTweenAlpha(backgroundSAprites[i].."EndTween", backgroundSAprites[i], 0, (tweenTime / 1000) / playbackRate, "")
+		elseif i == 3 and tag == backgroundSAprites[i].."StartTween" then
+			doTweenAlpha(backgroundSAprites[i].."EndTween", backgroundSAprites[i], 1, (tweenTime / 1000) / playbackRate, "")
+		elseif tag == backgroundSAprites[i].."StartTween" then
+			doTweenColor(backgroundSAprites[i].."EndTween", backgroundSAprites[i], getDataFromSave("UntitledVsDavePortSettings", "nightColor"), (tweenTime / 1000) / playbackRate, "")
+		end
+	end
+	if tag == "dadStartTween" then doTweenColor("dadEndTween", "dad", getDataFromSave("UntitledVsDavePortSettings", "nightColor"), (tweenTime / 1000) / playbackRate, "") end
+	if tag == "gfStartTween" then doTweenColor("gfEndTween", "gf", getDataFromSave("UntitledVsDavePortSettings", "nightColor"), (tweenTime / 1000) / playbackRate, "") end
+	if tag == "bfStartTween" then doTweenColor("bfEndTween", "boyfriend", getDataFromSave("UntitledVsDavePortSettings", "nightColor"), (tweenTime / 1000) / playbackRate, "") end
+end
+function sectionStartTime(section)
+	local daBPM = bpm;
+	local daPos = 0;
+	for i = 0, section do
+		daPos = daPos + (4 * (1000 * 60 / bpm));
+	end
+	return daPos;
 end
 
 function onBeatHit()
@@ -127,7 +188,6 @@ function updateSpotlight(bfSinging)
 		doTweenX('moveSpotLightX', 'spotLight', getGraphicMidpointX('boyfriend') -getCharacterX('boyfriend') * 0.4, 0.66, 'circOut')
 		doTweenY('moveSpotLightY', 'spotLight', getGraphicMidpointY('boyfriend') -getGraphicMidpointY('boyfriend') -175, 0.66, 'circOut')
 	end
-
 	if not bfSinging then
 		doTweenX('moveSpotLightX', 'spotLight', getGraphicMidpointX('dad') -getCharacterX('dad') * 1.225, 0.66, 'circOut')
 		doTweenY('moveSpotLightY', 'spotLight', getGraphicMidpointY('dad') -getGraphicMidpointY('dad') -125, 0.66, 'circOut')

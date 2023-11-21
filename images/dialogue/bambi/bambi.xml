@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="bambi .png">
+	<!-- Created using the Spritesheet and XML generator -->
+	<!-- https://uncertainprod.github.io/FNF-Spritesheet-XML-generator-Web -->
+	<SubTexture name="bambi_annoyed0000" x="0" y="269" width="235" height="268" frameX="2" frameY="2" frameWidth="231" frameHeight="264"/>
+	<SubTexture name="bambi_bevel_mad0000" x="235" y="269" width="225" height="252" frameX="-2" frameY="-14" frameWidth="231" frameHeight="264"/>
+	<SubTexture name="bambi_bevel0000" x="460" y="269" width="226" height="231" frameX="-1" frameY="-35" frameWidth="231" frameHeight="264"/>
+	<SubTexture name="bambi_normal0000" x="235" y="0" width="235" height="268" frameX="2" frameY="2" frameWidth="231" frameHeight="264"/>
+	<SubTexture name="bambi_splitathon0000" x="0" y="0" width="235" height="269" frameX="2" frameY="2" frameWidth="231" frameHeight="265"/>
+	<SubTexture name="bambi_upset0000" x="470" y="0" width="235" height="268" frameX="2" frameY="2" frameWidth="231" frameHeight="264"/>
+</TextureAtlas>

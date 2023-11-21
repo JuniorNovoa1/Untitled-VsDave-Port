@@ -42,7 +42,7 @@ function onCreatePost()
 end
 
 function onSongStart()
-	doTweenAlpha("timeBarDave", "timeBarDave", 1, 0.5, "circOut")
+	doTweenAlpha("timeBarDave", "timeBarDave", 1, 0.5 / playbackRate, "circOut")
 end
 
 function onUpdate(elapsed)
@@ -127,8 +127,8 @@ function onCountdownTick(swagCounter)
 			setProperty("shapeNoteWarning.alpha", 0)
 			addLuaSprite("shapeNoteWarning", false)
 	
-			doTweenAlpha("shapeNoteWarning1", "shapeNoteWarning", 1, 1, "")
-			doTweenY("shapeNoteWarning2", "shapeNoteWarning", 450, 1, "backOut")
+			doTweenAlpha("shapeNoteWarning1", "shapeNoteWarning", 1, 1 / playbackRate, "")
+			doTweenY("shapeNoteWarning2", "shapeNoteWarning", 450, 1 / playbackRate, "backOut")
 			runTimer("shapeNoteWarning", 3, 1)
 		end
 	end
@@ -136,8 +136,8 @@ end
 
 function onTimerCompleted(tag, loops, loopsLeft)
 	if tag == "shapeNoteWarning" then
-		doTweenAlpha("shapeNoteWarning11", "shapeNoteWarning", 0, 1, "")
-		doTweenY("shapeNoteWarning22", "shapeNoteWarning", screenHeight * 2, 1, "backIn")
+		doTweenAlpha("shapeNoteWarning11", "shapeNoteWarning", 0, 1 / playbackRate, "")
+		doTweenY("shapeNoteWarning22", "shapeNoteWarning", screenHeight * 2, 1 / playbackRate, "backIn")
 	end
 end
 

@@ -1,0 +1,24 @@
+{
+	"position": [
+		1000,
+		0
+	],
+	"dialogue_pos": "center",
+	"scale": 0,
+	"image": "bf/bf",
+	"animations": [
+		{
+			"loop_offsets": [
+				0,
+				0
+			],
+			"anim": "generic",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"loop_name": "idle0001",
+			"idle_name": "idle0001"
+		}
+	]
+}

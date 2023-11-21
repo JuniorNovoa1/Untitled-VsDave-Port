@@ -5,33 +5,33 @@ function onSongStart()
 	backgroundSAprites = getDataFromSave("UntitledVsDavePortSettings", "backgroundSprites")
 	for i = 1, #backgroundSAprites do
 		if i == 1 then
-			doTweenAlpha(backgroundSAprites[i].."StartTween", backgroundSAprites[i], 0, tweenTime / 1000, "")
+			doTweenAlpha(backgroundSAprites[i].."StartTween", backgroundSAprites[i], 0, (tweenTime / 1000) / playbackRate, "")
 		elseif i == 2 then
-			doTweenAlpha(backgroundSAprites[i].."StartTween", backgroundSAprites[i], 1, tweenTime / 1000, "")
+			doTweenAlpha(backgroundSAprites[i].."StartTween", backgroundSAprites[i], 1, (tweenTime / 1000) / playbackRate, "")
 		elseif i == 3 then
-			doTweenAlpha(backgroundSAprites[i].."StartTween", backgroundSAprites[i], 0, tweenTime / 1000, "")
+			doTweenAlpha(backgroundSAprites[i].."StartTween", backgroundSAprites[i], 0, (tweenTime / 1000) / playbackRate, "")
 		else
-			doTweenColor(backgroundSAprites[i].."StartTween", backgroundSAprites[i], '0xFF878787', tweenTime / 1000, "")
+			doTweenColor(backgroundSAprites[i].."StartTween", backgroundSAprites[i], getDataFromSave("UntitledVsDavePortSettings", "nightColor"), (tweenTime / 1000) / playbackRate, "")
 		end
 	end
-	doTweenColor("dadStartTween", "dad", '0xFF878787', tweenTime / 1000, "")
-	doTweenColor("gfStartTween", "gf", '0xFF878787', tweenTime / 1000, "")
-	doTweenColor("bfStartTween", "boyfriend", '0xFF878787', tweenTime / 1000, "")
+	doTweenColor("dadStartTween", "dad", getDataFromSave("UntitledVsDavePortSettings", "nightColor"), (tweenTime / 1000) / playbackRate, "")
+	doTweenColor("gfStartTween", "gf", getDataFromSave("UntitledVsDavePortSettings", "nightColor"), (tweenTime / 1000) / playbackRate, "")
+	doTweenColor("bfStartTween", "boyfriend", getDataFromSave("UntitledVsDavePortSettings", "nightColor"), (tweenTime / 1000) / playbackRate, "")
 end
 
 function onTweenCompleted(tag)
 	for i = 1, #backgroundSAprites do
 		if i == 2 and tag == backgroundSAprites[i].."StartTween"then
-			doTweenAlpha(backgroundSAprites[i].."EndTween", backgroundSAprites[i], 0, tweenTime / 1000, "")
+			doTweenAlpha(backgroundSAprites[i].."EndTween", backgroundSAprites[i], 0, (tweenTime / 1000) / playbackRate, "")
 		elseif i == 3 and tag == backgroundSAprites[i].."StartTween" then
-			doTweenAlpha(backgroundSAprites[i].."EndTween", backgroundSAprites[i], 1, tweenTime / 1000, "")
+			doTweenAlpha(backgroundSAprites[i].."EndTween", backgroundSAprites[i], 1, (tweenTime / 1000) / playbackRate, "")
 		elseif tag == backgroundSAprites[i].."StartTween" then
-			doTweenColor(backgroundSAprites[i].."EndTween", backgroundSAprites[i], 'D48ECD', tweenTime / 1000, "")
+			doTweenColor(backgroundSAprites[i].."EndTween", backgroundSAprites[i], getDataFromSave("UntitledVsDavePortSettings", "sunsetColor"), (tweenTime / 1000) / playbackRate, "")
 		end
 	end
-	if tag == "dadStartTween" then doTweenColor("dadEndTween", "dad", "D48ECD", tweenTime / 1000, "") end
-	if tag == "gfStartTween" then doTweenColor("gfEndTween", "gf", "D48ECD", tweenTime / 1000, "") end
-	if tag == "bfStartTween" then doTweenColor("bfEndTween", "boyfriend", "D48ECD", tweenTime / 1000, "") end
+	if tag == "dadStartTween" then doTweenColor("dadEndTween", "dad", getDataFromSave("UntitledVsDavePortSettings", "sunsetColor"), (tweenTime / 1000) / playbackRate, "") end
+	if tag == "gfStartTween" then doTweenColor("gfEndTween", "gf", getDataFromSave("UntitledVsDavePortSettings", "sunsetColor"), (tweenTime / 1000) / playbackRate, "") end
+	if tag == "bfStartTween" then doTweenColor("bfEndTween", "boyfriend", getDataFromSave("UntitledVsDavePortSettings", "sunsetColor"), (tweenTime / 1000) / playbackRate, "") end
 end
 
 function onStepHit()

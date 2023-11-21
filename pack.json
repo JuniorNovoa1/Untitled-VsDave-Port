@@ -1,8 +1,8 @@
 {
-	"name": "Name",
-	"description": "Description",
+	"name": "Untitled VsDave Port",
+	"description": "a custom vs dave port!!!",
 	"restart":false,
 	"runsGlobally": false,
-	"color": [170, 0, 255],
+	"color": [15, 95, 255],
 	"discordRPC": "863222024192262205"
 }

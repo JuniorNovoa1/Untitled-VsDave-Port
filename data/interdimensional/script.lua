@@ -13,7 +13,7 @@ function onStartCountdown()
 
 		playAnim("boyfriend", "scared", true)
 		playAnim("gf", "scared", true)
-		doTweenAlpha("camHUD", "camHUD", 0, 1, "")
+		doTweenAlpha("camHUD", "camHUD", 0, 1 / playbackRate, "")
 		
 		playSound("rumble", 0.8, "rumble")
 		runTimer("rumbling", 2)
@@ -102,31 +102,31 @@ function onStepHit()
 	if curStep == 639 then
 		cameraFlash("game", "FFFFFF", 0.3)
 		setProperty("defaultCamZoom", getProperty("defaultCamZoom") - 0.1)
-		doTweenAlpha("black", "black", 0, 0.5, "")
+		doTweenAlpha("black", "black", 0, 0.5 / playbackRate, "")
 		callScript("stages/interdimension-void", "changeInterdimensionBg", {"spike-void"})
 	end
 	if curStep == 1152 then
 		cameraFlash("game", "FFFFFF", 0.3)
 		callScript("stages/interdimension-void", "changeInterdimensionBg", {"darkSpace"})
 	
-		doTweenColor("dad", "dad", "0xFF0000FF", 1)
-		doTweenColor("gf", "gf", "0xFF0000FF", 1)
-		doTweenColor("boyfriend", "boyfriend", "0xFF0000FF", 1)
+		doTweenColor("dad", "dad", "0xFF0000FF", 1 / playbackRate)
+		doTweenColor("gf", "gf", "0xFF0000FF", 1 / playbackRate)
+		doTweenColor("boyfriend", "boyfriend", "0xFF0000FF", 1 / playbackRate)
 
 		for i = 1, #flyingBgChars do
-			doTweenColor(flyingBgChars[i], flyingBgChars[i], "0xFF0000FF", 1)
+			doTweenColor(flyingBgChars[i], flyingBgChars[i], "0xFF0000FF", 1 / playbackRate)
 		end
 	end
 	if curStep == 1408 then
 		cameraFlash("game", "FFFFFF", 0.3)
 		callScript("stages/interdimension-void", "changeInterdimensionBg", {"hexagon-void"})
 
-		doTweenColor("dad", "dad", "FFFFFF", 1)
-		doTweenColor("gf", "gf", "FFFFFF", 1)
-		doTweenColor("boyfriend", "boyfriend", "FFFFFF", 1)
+		doTweenColor("dad", "dad", "FFFFFF", 1 / playbackRate)
+		doTweenColor("gf", "gf", "FFFFFF", 1 / playbackRate)
+		doTweenColor("boyfriend", "boyfriend", "FFFFFF", 1 / playbackRate)
 
 		for i = 1, #flyingBgChars do
-			doTweenColor(flyingBgChars[i], flyingBgChars[i], "FFFFFF", 1)
+			doTweenColor(flyingBgChars[i], flyingBgChars[i], "FFFFFF", 1 / playbackRate)
 		end
 	end
 	if curStep == 1792 then
@@ -141,23 +141,23 @@ function onStepHit()
 		setProperty("defaultCamZoom", 0.7)
 		local backgroundSprites = getDataFromSave("UntitledVsDavePortSettings", "backgroundSprites")
 		for i = 1, #backgroundSprites do
-			doTweenAlpha(backgroundSprites[i], backgroundSprites[i], 1, 1)
+			doTweenAlpha(backgroundSprites[i], backgroundSprites[i], 1, 1 / playbackRate)
 		end
 		for i = 1, #flyingBgChars do
-			doTweenAlpha(flyingBgChars[i], flyingBgChars[i], 0, 1)
+			doTweenAlpha(flyingBgChars[i], flyingBgChars[i], 0, 1 / playbackRate)
 		end
-		doTweenAlpha("void", "interdimensionBG", 0, 1, "")
+		doTweenAlpha("void", "interdimensionBG", 0, 1 / playbackRate, "")
 		setDataFromSave("UntitledVsDavePortSettings", "canFloat", false)
 		cameraFlash("game", "FFFFFF", 0.25)
 		triggerEvent("Change Character", "dad", "dave-festival")
 	
 		local color = getBackgroundColor(curStage);
-		doTweenColor("dad", "dad", color, 0.6)
-		if boyfriendName ~= "tristan-golden-glowing" then doTweenColor("boyfriend", "boyfriend", color, 0.6) end
-		doTweenColor("gf", "gf", color, 0.6)
+		doTweenColor("dad", "dad", color, 0.6 / playbackRate)
+		if boyfriendName ~= "tristan-golden-glowing" then doTweenColor("boyfriend", "boyfriend", color, 0.6 / playbackRate) end
+		doTweenColor("gf", "gf", color, 0.6 / playbackRate)
 
-		doTweenX("boyfriendXPos", "boyfriend", getProperty("boyfriend.x") - 250, 0.6, "")
-		doTweenX("gfXPos", "gf", getProperty("gf.x") - 250, 0.6, "")
+		doTweenX("boyfriendXPos", "boyfriend", getProperty("boyfriend.x") - 250, 0.6 / playbackRate, "")
+		doTweenX("gfXPos", "gf", getProperty("gf.x") - 250, 0.6 / playbackRate, "")
 	
 		playAnim("boyfriend", "hey", true)
 		playAnim("gf", "cheer", true)

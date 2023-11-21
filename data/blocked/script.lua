@@ -1,3 +1,16 @@
+playDialogue = true;
+
+function onStartCountdown()
+	if isStoryMode and not seenCutscene then
+		if playDialogue then
+			startDialogue('dialogue', "DaveDialogue");
+			playDialogue = false;
+			return Function_Stop;
+		end
+	end
+	return Function_Continue;
+end
+
 function onStepHit()
 	if curStep == 128 then
 		setProperty("defaultCamZoom", getProperty("defaultCamZoom") + 0.1)
@@ -7,7 +20,7 @@ function onStepHit()
 		setProperty("black.alpha", 0)
 		screenCenter("black")
 		addLuaSprite("black", true)
-		doTweenAlpha("black", "black", 0.6, 1, "")
+		doTweenAlpha("black", "black", 0.6, 1 / playbackRate, "")
 		callOnLuas("makeInvisibleNotes", {true})
 		callOnLuas("createDialogue", {"blocked_sub1", 0.02, 1})
 	end
@@ -26,7 +39,7 @@ function onStepHit()
 	if curStep == 256 then
 		setProperty("defaultCamZoom", getProperty("defaultCamZoom") - 0.1)
 		cameraFlash("hud", "FFFFFF", 1)
-		doTweenAlpha("black", "black", 0, 1, "")
+		doTweenAlpha("black", "black", 0, 1 / playbackRate, "")
 		callOnLuas("makeInvisibleNotes", {false})
 	end
 	if curStep == 640 then
@@ -60,11 +73,11 @@ function onStepHit()
 		callOnLuas("makeInvisibleNotes", {false})
 	end
 	if curStep == 1152 then
-		doTweenAlpha("black", "black", 0.4, 1, "")
+		doTweenAlpha("black", "black", 0.4, 1 / playbackRate, "")
 		setProperty("defaultCamZoom", getProperty("defaultCamZoom") + 0.3)
 	end
 	if curStep == 1200 then
-		doTweenAlpha("black", "black", 0.7, (stepCrochet / 1000) * 8, "")
+		doTweenAlpha("black", "black", 0.7, ((stepCrochet / 1000) * 8) / playbackRate, "")
 	end
 	if curStep == 1216 then
 		cameraFlash("hud", "FFFFFF", 0.5)

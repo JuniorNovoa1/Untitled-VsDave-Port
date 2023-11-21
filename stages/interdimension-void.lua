@@ -16,11 +16,11 @@ function onCreate()
 		addLuaSprite(char[i], false)
 		local directionsRandom = {"left", "right"};
 		direction[i] = directionsRandom[getRandomInt(1, 2)];
-		angleChangeAmount[i] = getRandomInt(100, 200);
+		angleChangeAmount[i] = getRandomInt(100, 200) * playbackRate;
 		posOffset[i] = 800;
 		leftPosCheck[i] = (-getProperty(char[i]..".width") * (1 / getProperty("defaultCamZoom"))) - posOffset[i];
 		rightPosCheck[i] = (screenWidth * (1 / getProperty("defaultCamZoom"))) + getProperty(char[i]..".width") + posOffset[i];
-		randomSpeed[i] = getRandomInt(1, 6);
+		randomSpeed[i] = getRandomInt(1, 6) * playbackRate;
 	end
 	setDataFromSave("UntitledVsDavePortSettings", "flyingBgChars", char)
 end
@@ -82,12 +82,12 @@ local elapsedTime = 0.0;
 function onUpdate(elapsed)
 	elapsedTime = elapsedTime + elapsed;
 	setShaderFloat('interdimensionBG', 'uTime', elapsedTime)
-	local speed = 300;
+	local speed = 300 * playbackRate;
 	for i = 1, #char do
 		local moveDir = -1;
 		if direction[i] == "right" then moveDir = 1; end
 		setProperty(char[i]..".x", getProperty(char[i]..".x") + (speed * elapsed * moveDir * randomSpeed[i]))
-		setProperty(char[i]..".y", getProperty(char[i]..".y") + (math.sin(elapsedTime) * 5))
+		setProperty(char[i]..".y", getProperty(char[i]..".y") + ((math.sin(elapsedTime) * 5) * playbackRate))
 		setProperty(char[i]..".angle", getProperty(char[i]..".angle") + (angleChangeAmount[i] * elapsed))
 
 		if direction[i] == "left" then

@@ -1,0 +1,103 @@
+{
+	"dialogue_pos": "left",
+	"position": [
+		180,
+		150
+	],
+	"no_antialiasing": false,
+	"scale": 1.4,
+	"animations": [
+		{
+			"idle_offsets": [
+				0,
+				0
+			],
+			"anim": "annoyed",
+			"loop_offsets": [
+				0,
+				0
+			],
+			"idle_name": "bambi_annoyed",
+			"loop_name": "bambi_annoyed"
+		},
+		{
+			"idle_offsets": [
+				0,
+				0
+			],
+			"anim": "bevel_mad",
+			"loop_offsets": [
+				0,
+				0
+			],
+			"idle_name": "bambi_bevel_mad",
+			"loop_name": "bambi_bevel_mad"
+		},
+		{
+			"idle_offsets": [
+				0,
+				0
+			],
+			"anim": "bevel_bevel",
+			"loop_offsets": [
+				0,
+				0
+			],
+			"idle_name": "bambi_bevel",
+			"loop_name": "bambi_bevel"
+		},
+		{
+			"idle_offsets": [
+				0,
+				0
+			],
+			"anim": "normal",
+			"loop_offsets": [
+				0,
+				0
+			],
+			"idle_name": "bambi_normal",
+			"loop_name": "bambi_normal"
+		},
+		{
+			"idle_offsets": [
+				0,
+				0
+			],
+			"anim": "splitathon",
+			"loop_offsets": [
+				0,
+				0
+			],
+			"idle_name": "bambi_splitathon",
+			"loop_name": "bambi_splitathon"
+		},
+		{
+			"idle_offsets": [
+				0,
+				0
+			],
+			"anim": "confused",
+			"loop_offsets": [
+				0,
+				0
+			],
+			"idle_name": "bambi_upset",
+			"loop_name": "bambi_upset"
+		},
+		{
+			"idle_offsets": [
+				0,
+				0
+			],
+			"anim": "upset",
+			"loop_offsets": [
+				0,
+				0
+			],
+			"idle_name": "bambi_upset",
+			"loop_name": "bambi_upset"
+		}
+	],
+	"image": "bambi/bambi"
+}

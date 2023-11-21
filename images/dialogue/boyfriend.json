@@ -17,8 +17,8 @@
 				0,
 				0
 			],
-			"loop_name": "anims0001",
-			"idle_name": "anims0001"
+			"loop_name": "idle0001",
+			"idle_name": "idle0001"
 		},
 		{
 			"loop_offsets": [
@@ -30,8 +30,8 @@
 				0,
 				0
 			],
-			"loop_name": "anims0003",
-			"idle_name": "anims0003"
+			"loop_name": "idle0003",
+			"idle_name": "idle0003"
 		},
 		{
 			"loop_offsets": [
@@ -43,8 +43,8 @@
 				0,
 				0
 			],
-			"loop_name": "anims0002",
-			"idle_name": "anims0002"
+			"loop_name": "idle0002",
+			"idle_name": "idle0002"
 		},
 		{
 			"loop_offsets": [
@@ -56,8 +56,8 @@
 				0,
 				0
 			],
-			"loop_name": "anims0000",
-			"idle_name": "anims0000"
+			"loop_name": "idle0000",
+			"idle_name": "idle0000"
 		}
 	]
 }

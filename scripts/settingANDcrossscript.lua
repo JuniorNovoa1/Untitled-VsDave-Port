@@ -42,6 +42,8 @@ function onCreate()
 	setDataFromSave("UntitledVsDavePortSettings", "hasShapeNotes", false)
 	setDataFromSave("UntitledVsDavePortSettings", "canFloat", true)
 	setDataFromSave("UntitledVsDavePortSettings", "stageName", "")
+	setDataFromSave("UntitledVsDavePortSettings", "nightColor", "0xFF878787")
+	setDataFromSave("UntitledVsDavePortSettings", "sunsetColor", "D48ECD")
 end
 
 function convertStringToType(str, convertType)

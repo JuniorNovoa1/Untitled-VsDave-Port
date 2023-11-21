@@ -1,0 +1,108 @@
+{
+	"dialogue": [
+		{
+			"sound": "dialogue/gfDialogue",
+			"speed": 0.05,
+			"portrait": "gf",
+			"boxState": "normal",
+			"expression": "happy",
+			"text": "What a nice guy that Dave is for inviting us to this farm for a picnic."
+		},
+		{
+			"sound": "dialogue/gfdialogue",
+			"speed": 0.05,
+			"portrait": "gf",
+			"boxState": "normal",
+			"expression": "happy",
+			"text": "I say this makes up for him almost killing us with that whole 3D thing."
+		},
+		{
+			"sound": "dialogue/bfDialogue",
+			"speed": 0.05,
+			"portrait": "boyfriend",
+			"boxState": "normal",
+			"expression": "happy",
+			"text": "Skibbidy."
+		},
+		{
+			"sound": "dialogue/gfDialogue",
+			"speed": 0.05,
+			"portrait": "gf",
+			"boxState": "normal",
+			"expression": "happy",
+			"text": "I sure do hope no midget farmer with one short of a temper stumbles apon us!"
+		},
+		{
+			"sound": "dialogue/gfDialogue",
+			"speed": 0.05,
+			"portrait": "gf",
+			"boxState": "normal",
+			"expression": "happy",
+			"text": "Especially one with the presumption that we were stealing their corn..."
+		},
+		{
+			"sound": "dialogue/bambDialogue1",
+			"speed": 0.05,
+			"portrait": "bambi",
+			"boxState": "normal",
+			"expression": "annoyed",
+			"text": "Who goes there??"
+		},
+		{
+			"sound": "dialogue/bfDialogue",
+			"speed": 0.05,
+			"portrait": "boyfriend",
+			"boxState": "normal",
+			"expression": "confused",
+			"text": "Beep?"
+		},
+		{
+			"sound": "dialogue/gfdialogue",
+			"speed": 0.05,
+			"portrait": "gf",
+			"boxState": "normal",
+			"expression": "what",
+			"text": "Shit."
+		},
+		{
+			"sound": "dialogue/bambDialogue2",
+			"speed": 0.05,
+			"portrait": "bambi",
+			"boxState": "normal",
+			"expression": "annoyed",
+			"text": "Hey! Are you trying to steal my corn?"
+		},
+		{
+			"sound": "dialogue/bfDialogue",
+			"speed": 0.05,
+			"portrait": "boyfriend",
+			"boxState": "normal",
+			"expression": "confused",
+			"text": "Bo beep ber-"
+		},
+		{
+			"sound": "dialogue/bambdialogue3",
+			"speed": 0.05,
+			"portrait": "bambi",
+			"boxState": "normal",
+			"expression": "annoyed",
+			"text": "I GONNA BLOCK YOU OUT OF MY FARM! You never coming back ever again you dirty ole' rodeo trash. "
+		},
+		{
+			"sound": "dialogue/bfdialogue",
+			"speed": 0.05,
+			"portrait": "boyfriend",
+			"boxState": "normal",
+			"expression": "confused",
+			"text": "Bop?"
+		},
+		{
+			"sound": "dialogue/gfdialogue",
+			"speed": 0.05,
+			"portrait": "gf",
+			"boxState": "normal",
+			"expression": "what",
+			"text": "Just get on with it Boyfriend."
+		}
+	]
+}

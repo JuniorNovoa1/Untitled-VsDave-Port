@@ -16,10 +16,10 @@ function onCreate()
 	
 	makeLuaSprite('grassbg', 'backgrounds/dave-house/'..assetType.."grass bg", -832, 505);
 	setScrollFactor("grassbg", 0.7, 0.7)
-	addLuaSprite("grassbg", false)
+	if not lowQuality then addLuaSprite("grassbg", false) end
 
 	makeLuaSprite('gate', 'backgrounds/dave-house/'..assetType.."gate", -755, 250);
-	addLuaSprite("gate", false)
+	if not lowQuality then addLuaSprite("gate", false) end
 
 	makeLuaSprite('stageFront', 'backgrounds/dave-house/'..assetType.."grass", -832, 505);
 	addLuaSprite("stageFront", false)
