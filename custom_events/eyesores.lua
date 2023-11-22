@@ -32,9 +32,7 @@ function onUpdate()
     if getShaderBool("PulseShaderSpr", "uEnabled") then
       setShaderFloat("PulseShaderSpr", "uampmul", 0.5)
       if getDataFromSave('UntitledVsDavePortSettings', 'screenShake', true) then
-		   runHaxeCode[[
-			   FlxG.camera.shake(0.010, 0.010);
-		   ]]
+		   runHaxeCode([[FlxG.camera.shake(0.010, 0.010);]])
       end
       playAnim('gf', 'scared', false)
    else

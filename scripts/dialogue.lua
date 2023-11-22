@@ -2,9 +2,9 @@ local dialogue = {};
 
 function onCreate()
 	addHaxeLibrary('FlxTimer', 'flixel.util')
-	addHaxeLibrary("FlxText", "flixel.text")
 	addHaxeLibrary('FlxTween', 'flixel.tweens')
 	addHaxeLibrary("StringTools")
+	addHaxeLibrary("FunkinLua")
 end
 
 function getLanguageText(stringName, getFromLanguageManager)
@@ -27,16 +27,17 @@ function createDialogue(textString, typeSpeed, startTime, textSize, getFromLangu
 	if textSize == nil then textSize = 36; end
 
 	runHaxeCode([[
-		var dialogueTxt = new FlxText(400, 55, 0, "", 36);
-		dialogueTxt.camera = game.camHUD;
+		var dialogueTxt = new ModchartText(400, 55, "", 0);
 		game.add(dialogueTxt);
 		game.modchartTexts.set("dialogueTxt", dialogueTxt)
 	]])
+	--makeLuaText("dialogueTxt", "", 36, 400, 55)
 	setTextFont("dialogueTxt", "comic.ttf")
 	setProperty("dialogueTxt.y", (screenHeight / 2) - 200)
 	setTextColor('dialogueTxt', 'FFFFFF')
 	setTextSize("dialogueTxt", textSize)
-	setTextBorder("dialogueTxt", textSize / 2, "000000")
+	setTextBorder("dialogueTxt", 2, "000000")
+	setProperty("dialogueTxt.antialiasing", true)
 	runHaxeCode([[
 		var txt = game.modchartTexts.get('dialogueTxt');
 		game.modchartTexts.set("dialogueTxt", null);

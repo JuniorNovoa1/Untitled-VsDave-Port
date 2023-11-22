@@ -1,4 +1,3 @@
-local CharactersWith3D = {"dave-angey", "dave-festival-3d", "bf-3d", "gf-3d"}
 local funnyFloatyBoys = {'dave-angey', 'bambi-3d', 'expunged', 'bambi-unfair', 'exbungo', 'dave-festival-3d', 'dave-3d-recursed', 'bf-3d'}
 local canFloat = true;
 
@@ -43,8 +42,8 @@ end
 function changeNoteSkinsOnChange()
 	local chars3D = {false, false}
 
-	for i = 1, #CharactersWith3D do
-		if string.lower(CharactersWith3D[i]) == string.lower(getProperty("boyfriend.curCharacter")) then
+	for i = 1, #funnyFloatyBoys do
+		if string.lower(funnyFloatyBoys[i]) == string.lower(getProperty("boyfriend.curCharacter")) then
 			setProperty("boyfriend.antialiasing", false)
 			changeNoteSkin(true, 'NOTE_assets_3D')
 			for i = 0, 3 do
@@ -59,8 +58,8 @@ function changeNoteSkinsOnChange()
 			end
 		end
 	end
-	for i = 1, #CharactersWith3D do
-		if string.lower(CharactersWith3D[i]) == string.lower(getProperty("dad.curCharacter")) then
+	for i = 1, #funnyFloatyBoys do
+		if string.lower(funnyFloatyBoys[i]) == string.lower(getProperty("dad.curCharacter")) then
 			setProperty("dad.antialiasing", false)
 			changeNoteSkin(false, 'NOTE_assets_3D')
 			for i = 0, 3 do

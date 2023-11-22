@@ -123,6 +123,17 @@
 		},
 		{
 			"offsets": [
+				14,
+				18
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "hit",
+			"indices": [],
+			"name": "BF hit"
+		},
+		{
+			"offsets": [
 				-4,
 				0
 			],

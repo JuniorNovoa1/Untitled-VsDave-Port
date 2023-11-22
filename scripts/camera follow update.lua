@@ -20,8 +20,15 @@ function onUpdate() --camera now follows characters!!!!
 	if boyfriendName == "dave-angey" or boyfriendName == "dave-festival-3d" then
 		bfCamIdle[2] = getMidpointY('boyfriend')
 	end
+	if boyfriendName == "bambi-3d" then
+		bfCamIdle[1] = getMidpointX('boyfriend') - 375;
+		bfCamIdle[2] = getMidpointY('boyfriend') - 200;
+	end
 	if dadName == "dave-angey" or dadName == "dave-festival-3d" then
 		dadCamIdle[2] = getMidpointY('dad')
+	end
+	if dadName == "bambi-3d" then
+		dadCamIdle[1] = getMidpointX('dad')
 	end
 
 	if mustHitSection == true and getProperty('boyfriend.animation.curAnim.name') == 'idle' then

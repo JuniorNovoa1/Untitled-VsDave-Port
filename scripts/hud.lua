@@ -1,6 +1,6 @@
 local font = "comic.ttf"
 
-function onCreatePost()
+function onCreatePost() --this lua file just makes the game look like vsdave lol
 	addHaxeLibrary("Std")
 	addHaxeLibrary("Math")
     addHaxeLibrary('FlxMath', 'flixel.math')
@@ -39,10 +39,22 @@ function onCreatePost()
 	setTextFont("timeTxt", font)
 	setProperty("timeTxt.y", getProperty("timeTxt.y") - 10)
 	setProperty("scoreTxt.y", getProperty("scoreTxt.y") + 15)
+
+	addHaxeLibrary("Application", 'lime.app')
+	local bambiWindowNames = {'when you realize you have school this monday', 'industrial society and its future', 'my ears burn', 'i got that weed card', 'my ass itch', 'bruh', 'alright instagram its shoutout time'};
+	if string.lower(songName) == "supernovae" or string.lower(songName) == "glitch" or string.lower(songName) == "master" then
+		runHaxeCode([[Application.current.window.title = "]]..bambiWindowNames[getRandomInt(1, #bambiWindowNames)]..[[";]])
+	end
+end
+function onDestroy()
+	runHaxeCode([[Application.current.window.title = "Friday Night Funkin': Psych Engine";]])
 end
 
 function onSongStart()
 	doTweenAlpha("timeBarDave", "timeBarDave", 1, 0.5 / playbackRate, "circOut")
+end
+function onEndSong()
+	removeLuaSprite("timeBarDave", true)
 end
 
 function onUpdate(elapsed)
@@ -51,10 +63,12 @@ function onUpdate(elapsed)
 	--[[screenCenter("timeBar", 'x')
 	setObjectCamera("timeBar", getObjectOrder("timeBarBG") - 1)
 	setProperty("timeBar.y", getProperty("timeBar.y") - 1)--]]
-	scaleObject("timeBarBG", 1.48, 0.68, true)
-	scaleObject("timeBar", 1.48, 0.68, true)
-	setProperty("timeBar.x", getProperty("timeBarDave.x") + 8.9)
-	setProperty("timeBarDave.y", getProperty("timeBar.y") - 6.35)
+	if luaSpriteExists("timeBarDave") then
+		scaleObject("timeBarBG", 1.48, 0.68, true)
+		scaleObject("timeBar", 1.48, 0.68, true)
+		setProperty("timeBar.x", getProperty("timeBarDave.x") + 8.9)
+		setProperty("timeBarDave.y", getProperty("timeBar.y") - 6.35)
+	end
 	runHaxeCode([[
 		var thingy = 0.88;
 
@@ -144,6 +158,45 @@ end
 function onTweenCompleted(tag)
 	if tag == "shapeNoteWarning22" then
 		removeLuaSprite("shapeNoteWarning", true)
+	end
+end
+
+function math.lerp(from, to, t)
+	return from + (to - from) * math.clamp(t, 0, 1)
+end
+function math.clamp(x,min,max)return math.max(min,math.min(x,max))end
+function string.duplicate(s, i)
+    local str = ""
+    for i = 1, i do str = str .. s end
+    return str
+end
+string.dupe = string.duplicate
+local zero = "0"
+function math.toTime(x, includeMS, blankIfNotExist)
+    local abs = math.abs(x)
+    local int = math.floor(abs)
+    
+    local ms = tostring(abs - int):sub(2, 5)
+    ms = ms .. zero:duplicate(math.floor(math.clamp(4 - #ms, 0, 3)))
+    
+    local s = tostring(math.fmod(int, 60))
+    if (#s == 1) then s = zero .. s end
+    
+    local m = tostring(math.fmod(math.floor(int / 60), 60))
+    if (#m == 1 and (blankIfNotExist or int >= 3600)) then m = zero .. m end
+    
+    local h = tostring(math.floor(int / 3600))
+    
+    local r = m .. ":" .. s
+    if (int >= 3600) then r = h .. ":" .. r end
+    
+    return (x < 0 and "-" or "") .. (includeMS and r .. ms or r)
+end
+function onStepHit()
+	if stringStartsWith(version, '0.7') then
+		changeDiscordPresence(songName.." - Untitled VsDave Port", "S: "..tostring(score).." | M: "..tostring(getProperty('songMisses')).." | A: "..tostring(math.floor(getProperty('ratingPercent') * 100, 2)).."%".." ("..math.toTime(getSongPosition() / 1000).." / "..math.toTime(getProperty("songLength") / 1000)..")")
+    else
+		changePresence(songName.." - Untitled VsDave Port", "S: "..tostring(score).." | M: "..tostring(getProperty('songMisses')).." | A: "..tostring(math.floor(getProperty('ratingPercent') * 100, 2)).."%".." ("..math.toTime(getSongPosition() / 1000).." / "..math.toTime(getProperty("songLength") / 1000)..")")
 	end
 end
 
