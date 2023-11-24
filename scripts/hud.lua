@@ -72,6 +72,9 @@ function onCreatePost() --this lua file just makes the game look like vsdave lol
 	if string.lower(songName) == "supernovae" or string.lower(songName) == "glitch" or string.lower(songName) == "master" then
 		runHaxeCode([[Application.current.window.title = "]]..bambiWindowNames[getRandomInt(1, #bambiWindowNames)]..[[";]])
 	end
+	if string.lower(songName) == "exploitation" then
+		runHaxeCode([[Application.current.window.title = "[DATA EXPUNGED]";]])
+	end
 end
 function onDestroy()
 	runHaxeCode([[Application.current.window.title = "Friday Night Funkin': Psych Engine";]])
@@ -232,10 +235,10 @@ function onBeatHit()
 
 	if not inFiveNights then
 		runHaxeCode([[
-		var funny = Math.max(Math.min(game.healthBar.value, 1.9), 0.1);
-		game.getLuaObject("iconP12", false).setGraphicSize(Std.int(game.getLuaObject("iconP12", false).width + (50 * (funny + 0.1))),Std.int(game.getLuaObject("iconP12", false).height - (25 * funny)));
-		game.getLuaObject("iconP22", false).setGraphicSize(Std.int(game.getLuaObject("iconP22", false).width + (50 * ((2 - funny) + 0.1))),Std.int(game.getLuaObject("iconP22", false).height - (25 * ((2 - funny) + 0.1))));
-	]])
+			var funny = Math.max(Math.min(game.healthBar.value, 1.9), 0.1);
+			game.getLuaObject("iconP12", false).setGraphicSize(Std.int(game.getLuaObject("iconP12", false).width + (50 * (funny + 0.1))),Std.int(game.getLuaObject("iconP12", false).height - (25 * funny)));
+			game.getLuaObject("iconP22", false).setGraphicSize(Std.int(game.getLuaObject("iconP22", false).width + (50 * ((2 - funny) + 0.1))),Std.int(game.getLuaObject("iconP22", false).height - (25 * ((2 - funny) + 0.1))));
+		]])
 	else
 		setGraphicSize('iconP22', math.floor(getProperty('iconP22.width') + (50 * funny)), math.floor(getProperty('iconP22.height') - (25 * funny)))
 		setGraphicSize('iconP12', math.floor(getProperty('iconP12.width') + (50 * ((2 - funny) + 0.1))), math.floor(getProperty('iconP12.height') - (25 * ((2 - funny) + 1))))
