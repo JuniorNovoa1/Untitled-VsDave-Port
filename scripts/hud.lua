@@ -55,7 +55,7 @@ function onCreatePost() --this lua file just makes the game look like vsdave lol
 	if string.lower(songName) == "exploitation" then 
 		addHaxeLibrary("Sys")
 		if getDataFromSave("UntitledVsDavePortSettings", "selfAwareness") ~= false then
-			if buildTarget == "windows" then runHaxeCode([[game.getLuaObject("creditsWatermark", true).text += Sys.getEnv("USERNAME");]]) else runHaxeCode([[game.getLuaObject("creditsWatermark", true).text += Sys.getEnv("HOME");]]) end
+			if buildTarget == "windows" then runHaxeCode([[game.getLuaObject("creditsWatermark", true).text += Sys.getEnv("USERNAME");]]) else runHaxeCode([[game.getLuaObject("creditsWatermark", true).text += Sys.getEnv("USER");]]) end
 		else setTextString("creditsWatermark", getTextString("creditsWatermark").."Boyfriend") end
 		setTextString("creditsWatermark", getTextString("creditsWatermark").."!")
 	end
