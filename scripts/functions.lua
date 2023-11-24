@@ -11,12 +11,12 @@ function makeInvisibleNotes(invis)
 	if invis then
 		for i = 0, 7 do
 			cancelTween("note"..i)
-			noteTweenAlpha("note"..i, i, 0, 1, "")
+			noteTweenAlpha("note"..i, i, 0, 1 / playbackRate, "")
 		end
 	else
 		for i = 0, 7 do
 			cancelTween("note"..i)
-			noteTweenAlpha("note"..i, i, 1, 1, "")
+			noteTweenAlpha("note"..i, i, 1, 1 / playbackRate, "")
 		end
 	end
 end

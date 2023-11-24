@@ -16,13 +16,13 @@ end
 function onStepHit()
     if curStep == 261 then
         setProperty("defaultCamZoom", getProperty("defaultCamZoom") + 0.2)
-		cameraFlash("hud", "FFFFFF", 0.5)
+		cameraFlash("hud", "FFFFFF", 0.5 / playbackRate)
 		makeLuaSprite("black", "", 0, 0)
 		makeGraphic("black", screenWidth * 2, screenHeight * 2, '000000')
 		setProperty("black.alpha", 0)
 		screenCenter("black")
 		addLuaSprite("black", true)
-		doTweenAlpha("black", "black", 0.6, 1, "")
+		doTweenAlpha("black", "black", 0.6, 1 / playbackRate, "")
 		callOnLuas("makeInvisibleNotes", {true});
         callOnLuas("createDialogue", {"shred_sub1", 0.02, 0.3})
 	end 
@@ -61,28 +61,28 @@ function onStepHit()
 	end 
     if curStep == 512 then
         setProperty("defaultCamZoom", getProperty("defaultCamZoom") - 0.2)
-		cameraFlash("hud", "FFFFFF", 1)
-        doTweenAlpha("black", "black", 0, 1, "")
+		cameraFlash("hud", "FFFFFF", 1 / playbackRate)
+        doTweenAlpha("black", "black", 0, 1 / playbackRate, "")
 		callOnLuas("makeInvisibleNotes", {false})
 	end 
     if curStep == 784 or curStep == 816 or curStep == 912 or curStep == 944 then
 		--blocked shaders
         setProperty("defaultCamZoom", getProperty("defaultCamZoom") + 0.2)
-        doTweenAlpha("black", "black", 0.6, 1, "")
+        doTweenAlpha("black", "black", 0.6, 1 / playbackRate, "")
 	end 
     if curStep == 800 or curStep == 832 or curStep == 928 then
 		--remove blocked shaders
         setProperty("defaultCamZoom", getProperty("defaultCamZoom") - 0.2)
-        doTweenAlpha("black", "black", 0, 1, "")
+        doTweenAlpha("black", "black", 0, 1 / playbackRate, "")
 	end 
     if curStep == 960 then
         --blocked shaders?
         setProperty("defaultCamZoom", 0.7)
-        doTweenAlpha("black", "black", 0, 1, "")
+        doTweenAlpha("black", "black", 0, 1 / playbackRate, "")
 	end 
     if curStep == 992 then
         for i = 0, 3 do
-            noteTweenAlpha("dadNote"..i, i, 0, 1, "")
+            noteTweenAlpha("dadNote"..i, i, 0, 1 / playbackRate, "")
         end
 	end 
     if curStep == 1008 then
@@ -90,7 +90,7 @@ function onStepHit()
         playAnim("dad", "takeOut", true)
 	end
     if curStep == 1024 then
-        cameraFlash("hud", "FFFFFF", 1)
+        cameraFlash("hud", "FFFFFF", 1 / playbackRate)
 
         for i = 4, 7 do
             cancelTween("bfNote"..i)
@@ -174,15 +174,15 @@ function onStepHit()
     if curStep == 1276 then
         doTweenAlpha("dadNoteGuitar", "opponentStrums.members[4]", 0, (stepCrochet / 1000) * 2, "")
         for i = 0, 3 do
-            noteTweenAlpha("dadNote"..i, i, 0, (stepCrochet / 1000) * 2, "")
+            noteTweenAlpha("dadNote"..i, i, 0, ((stepCrochet / 1000) * 2) / playbackRate, "")
         end
         for i = 4, 7 do
-            noteTweenAlpha("bfNote"..i, i, 1, (stepCrochet / 1000) * 2, "")
+            noteTweenAlpha("bfNote"..i, i, 1, ((stepCrochet / 1000) * 2) / playbackRate, "")
         end
 	end 
     if curStep == 1280 then
-        doTweenAlpha("boyfriend", "boyfriend", 1, 1, "")
-        doTweenAlpha("bfSpot", "bfSpot", 1, 1, "")
+        doTweenAlpha("boyfriend", "boyfriend", 1, 1 / playbackRate, "")
+        doTweenAlpha("bfSpot", "bfSpot", 1, 1 / playbackRate, "")
 	end 
     if curStep == 1536 then
         makeLuaSprite("blackFront", "", 0, 0)
@@ -190,14 +190,14 @@ function onStepHit()
 		setProperty("blackFront.alpha", 0)
 		screenCenter("blackFront")
 		addLuaSprite("blackFront", true)
-        doTweenAlpha("blackFront", "blackFront", 1, 0.5, "")
+        doTweenAlpha("blackFront", "blackFront", 1, 0.5 / playbackRate, "")
         --[[ after tween
         ]]
 						--regenerateStaticArrows(0);
 
         setProperty("defaultCamZoom", getProperty("defaultCamZoom") + 0.2)
 	    --set blocked shader
-        doTweenAlpha("black", "black", 0.6, 1, "")
+        doTweenAlpha("black", "black", 0.6, 1 / playbackRate, "")
 		callOnLuas("makeInvisibleNotes", {true})
 	end 
     if curStep == 1552 then
@@ -225,14 +225,14 @@ function onStepHit()
         setProperty("defaultCamZoom", getProperty("defaultCamZoom") + 0.1)
 	end 
     if curStep == 1648 then
-        doTweenAlpha("black", "black", 1, 1, "")
+        doTweenAlpha("black", "black", 1, 1 / playbackRate, "")
 		--remove blocked shader
         setProperty("defaultCamZoom", getProperty("defaultCamZoom") + 0.1)
 	end 
     if curStep == 1664 then
         setProperty("defaultCamZoom", getProperty("defaultCamZoom") - 0.9)
-        cameraFlash("hud", "FFFFFF", 1)
-        doTweenAlpha("black", "black", 0, 1, "")
+        cameraFlash("hud", "FFFFFF", 1 / playbackRate)
+        doTweenAlpha("black", "black", 0, 1 / playbackRate, "")
         local xPosSytrumsd = 266;
         for i = 0, 1 do
             setPropertyFromGroup("strumLineNotes", i, "x", getPropertyFromGroup("strumLineNotes", i, "x") - xPosSytrumsd)
@@ -282,6 +282,6 @@ function onTweenCompleted(tag)
         for i = 1, #itesm do
             removeLuaSprite(itesm[i], true)
         end
-        doTweenAlpha("blackFront", "blackFront", 0, 0.5, "")
+        doTweenAlpha("blackFront", "blackFront", 0, 0.5 / playbackRate, "")
     end
 end

@@ -78,14 +78,14 @@ function onStepHit()
 	end
     if curStep == 1024 then
 		setProperty("defaultCamZoom", 1)
-        doTweenX("dadLinearX", "dad", 25, 15, "")
-		doTweenY("dadLinearY", "dad", 50, 15, "")
+        doTweenX("dadLinearX", "dad", 25, 15 / playbackRate, "")
+		doTweenY("dadLinearY", "dad", 50, 15 / playbackRate, "")
         --eyesores
 	end
     if curStep == 1280 then
 		setProperty("defaultCamZoom", 1)
-        doTweenX("dadLinearX", "dad", 50, 0.6, "")
-		doTweenY("dadLinearY", "dad", 280, 0.6, "")
+        doTweenX("dadLinearX", "dad", 50, 0.6 / playbackRate, "")
+		doTweenY("dadLinearY", "dad", 280, 0.6 / playbackRate, "")
         --eyesores off
 	end
 end
@@ -125,5 +125,5 @@ function onUpdatePost(elapsed)
         "weekBefore": "EverySongJokeBambi",
         "startUnlocked": true
         }]], false)
-    end 
+    end
 end

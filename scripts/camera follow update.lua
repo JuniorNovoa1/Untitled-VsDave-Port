@@ -1,4 +1,4 @@
-local camMovementType = '';
+local camMovementType = ''; --("", regular camera movement), ("charSize", moves camera depending by how big the character is.), ("camZoom", moves camera by how much the "defaultCamZoom" is.)
 local bfCamIdle = {};
 local dadCamIdle = {};
 
@@ -37,7 +37,8 @@ function onUpdate() --camera now follows characters!!!!
 		if camMovementType == 'charSize' then
 			offsets = 30 + (0.000025 * getProperty('boyfriend.width') * getProperty('boyfriend.height'));
 		elseif camMovementType == 'camZoom' then
-			offsets = 30 / getProperty('defaultCamZoom');
+			offsets = 33.35 * getProperty('defaultCamZoom');
+			--offsets = 27 / getProperty('defaultCamZoom');
 		end
 		if curNoteData == 0 then
 			callCamMovemt(bfCamIdle[1] -offsets -(yoffset * 2.5), bfCamIdle[2] -yoffset);
@@ -58,7 +59,8 @@ function onUpdate() --camera now follows characters!!!!
 		if camMovementType == 'charSize' then
 			offsets = 30 + (0.000025 * getProperty('dad.width') * getProperty('dad.height'));
 		elseif camMovementType == 'camZoom' then
-			offsets = 30 / (getProperty('defaultCamZoom') * 0.8);
+			offsets = 33.35 * getProperty('defaultCamZoom');
+			--offsets = 30 / (getProperty('defaultCamZoom') * 0.8);
 		end
 		if curNoteData == 0 then
 			callCamMovemt(dadCamIdle[1] -offsets -yoffset, dadCamIdle[2] -yoffset);
@@ -75,13 +77,11 @@ function onUpdate() --camera now follows characters!!!!
 	end
 end
 
-function goodNoteHit(id, direction, noteType, isSustainNote)
-	if mustHitSection then curNoteData = direction; end
-end
-
-function opponentNoteHit(id, direction, noteType, isSustainNote)
-	if not mustHitSection then curNoteData = direction; end
-end
+function goodNoteHit(id, direction, noteType, isSustainNote) if mustHitSection then curNoteData = direction; end end
+function noteMiss(direction) if mustHitSection then curNoteData = direction; end end
+function noteMissPress(direction) if mustHitSection then curNoteData = direction; end end
+function goodNoteHit(id, direction, noteType, isSustainNote) if mustHitSection then curNoteData = direction; end end
+function opponentNoteHit(id, direction, noteType, isSustainNote) if not mustHitSection then curNoteData = direction; end end
 
 function callCamMovemt(x, y)
 	if not camMovement then return; end

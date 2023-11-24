@@ -26,7 +26,7 @@ function onStepHit()
 		setProperty("defaultCamZoom", getProperty("defaultCamZoom") - 0.2)
 	end
 	if curStep == 916 then
-		cameraFlash("hud", "FFFFFF", 1)
+		cameraFlash("hud", "FFFFFF", 1 / playbackRate)
 	end
 	if curStep == 935 then
 		setProperty("defaultCamZoom", getProperty("defaultCamZoom") + 0.2)
@@ -74,6 +74,6 @@ function onStepHit()
 		cancelTween("dad")
 		setProperty("dad.alpha", 1)
 		removeLuaSprite("black", true)
-		cameraFlash("hud", "FFFFFF", 1)
+		cameraFlash("hud", "FFFFFF", 1 / playbackRate)
 	end
 end

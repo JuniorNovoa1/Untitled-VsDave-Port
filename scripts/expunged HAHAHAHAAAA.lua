@@ -6,6 +6,7 @@ function onCreate()
 end
 
 function onGameOver()
+	if string.lower(songName) ~= "exploitation" then return; end
 	local expungedLines = {
 		'[I FOUND YOU]', 
 		"[I CAN SEE YOU]", 

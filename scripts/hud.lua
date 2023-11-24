@@ -1,5 +1,3 @@
-local font = "comic.ttf"
-
 function onCreatePost() --this lua file just makes the game look like vsdave lol
 	addHaxeLibrary("Std")
 	addHaxeLibrary("Math")
@@ -24,17 +22,46 @@ function onCreatePost() --this lua file just makes the game look like vsdave lol
 	--setProperty("timeBarBG.color", getColorFromHex("808080"))
 	setProperty("timeBar.color", getColorFromHex("90ee90"))
 
+	local font = "comic.ttf";
+	local fontScaler = 1;
+
+
+	local credits = "";
 	local creditsText = false;
 	local yPOS = getProperty("healthBar.y") + 50
+	if string.lower(songName) == "supernovae" then credits = getLanguageText("supernovae_credit", true) end
+	if string.lower(songName) == "glitch" then credits = getLanguageText("glitch_credit", true) end
+	if string.lower(songName) == "unfairness" then credits = getLanguageText("unfairness_credit", true) end
+	if string.lower(songName) == "cheating" then credits = getLanguageText("cheating_credit", true) end
+	if string.lower(songName) == "exploitation" then credits = getLanguageText("exploitation_credit", true) end
+	if string.lower(songName) == "kabunga" then credits = getLanguageText("kabunga_credit", true) end
+	if credits ~= "" then creditsText = true; end
 	if creditsText then yPOS = getProperty("healthBar.y") + 30 end
 
 	makeLuaText("kadeEngineWatermark", songName, 0, 4, yPOS)
 	setScrollFactor("kadeEngineWatermark", 0.0, 0.0)
 	setTextSize("kadeEngineWatermark", 16)
-	setTextBorder("kadeEngineWatermark", 1.25, "000000")
+	setTextBorder("kadeEngineWatermark", 1.25 * fontScaler, "000000")
 	addLuaText("kadeEngineWatermark")
 
+	if creditsText then
+		makeLuaText("creditsWatermark", credits, 0, 4, getProperty("healthBar.y") + 50)
+		setScrollFactor("creditsWatermark", 0.0, 0.0)
+		setTextSize("creditsWatermark", 16)
+		setTextBorder("creditsWatermark", 1.25 * fontScaler, "000000")
+		addLuaText("creditsWatermark")
+	end
+
+	if string.lower(songName) == "exploitation" then 
+		addHaxeLibrary("Sys")
+		if getDataFromSave("UntitledVsDavePortSettings", "selfAwareness") ~= false then
+			if buildTarget == "windows" then runHaxeCode([[game.getLuaObject("creditsWatermark", true).text += Sys.getEnv("USERNAME");]]) else runHaxeCode([[game.getLuaObject("creditsWatermark", true).text += Sys.getEnv("HOME");]]) end
+		else setTextString("creditsWatermark", getTextString("creditsWatermark").."Boyfriend") end
+		setTextString("creditsWatermark", getTextString("creditsWatermark").."!")
+	end
+
 	setTextFont("kadeEngineWatermark", font)
+	setTextFont("creditsWatermark", font)
 	setTextFont("scoreTxt", font)
 	setTextFont("timeTxt", font)
 	setProperty("timeTxt.y", getProperty("timeTxt.y") - 10)
@@ -125,7 +152,7 @@ function onCountdownTick(swagCounter)
 		introSoundPath[1] = "ex";
 	end
 	if string.lower(songName) == "overdrive" then
-		introSoundPath[1] = "dave";
+		introSoundPath[1] = {"dave", "_dave"};
 	end
 	if swagCounter == 0 then playSound("introSounds/"..introSoundPath[1].."/intro3"..introSoundPath[2], 1) end
 	if swagCounter == 1 then playSound("introSounds/"..introSoundPath[1].."/intro2"..introSoundPath[2], 1) end
@@ -143,7 +170,7 @@ function onCountdownTick(swagCounter)
 	
 			doTweenAlpha("shapeNoteWarning1", "shapeNoteWarning", 1, 1 / playbackRate, "")
 			doTweenY("shapeNoteWarning2", "shapeNoteWarning", 450, 1 / playbackRate, "backOut")
-			runTimer("shapeNoteWarning", 3, 1)
+			runTimer("shapeNoteWarning", 3 / playbackRate, 1)
 		end
 	end
 end
@@ -225,4 +252,13 @@ function onBeatHit()
 	updateHitbox('iconP22')
 	updateHitbox('iconP1')
 	updateHitbox('iconP2')
+end
+
+function getLanguageText(stringName, getFromLanguageManager)
+	if getFromLanguageManager == false then return stringName; end
+	local lang = getDataFromSave("UntitledVsDavePortSettings", "lang");
+	dialogue = getDataFromSave("UntitledVsDavePortSettings", "textInLanguages")
+	if lang == nil then lang = "en-US" end
+	if dialogue[string.lower(lang)][stringName] ~= nil then return dialogue[string.lower(lang)][stringName]; end
+	return "nil";
 end

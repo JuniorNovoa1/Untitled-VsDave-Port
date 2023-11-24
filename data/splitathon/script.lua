@@ -16,23 +16,23 @@ function onStepHit()
 		cameraShake("hud", 0.015, (stepCrochet / 1000) * 50)
 	end
 	if curStep == 4800 then
-		cameraFlash("game", "FFFFFF", 1)
+		cameraFlash("game", "FFFFFF", 1 / playbackRate)
 		splitathonExpression('dave', 'what');
 		addSplitathonChar("bambi-splitathon");
 		if not hasTriggeredDumbshit then throwThatBitchInThere('bambi-splitathon', 'dave-splitathon'); end
 	end
 	if curStep == 5824 then
-		cameraFlash("game", "FFFFFF", 1)
+		cameraFlash("game", "FFFFFF", 1 / playbackRate)
 		splitathonExpression('bambi', 'umWhatIsHappening');
 		addSplitathonChar("dave-splitathon");
 	end
 	if curStep == 6080 then
-		cameraFlash("game", "FFFFFF", 1)
+		cameraFlash("game", "FFFFFF", 1 / playbackRate)
 		splitathonExpression('dave', 'happy'); 
 		addSplitathonChar("bambi-splitathon");
 	end
 	if curStep == 8384 then
-		cameraFlash("game", "FFFFFF", 1)
+		cameraFlash("game", "FFFFFF", 1 / playbackRate)
 		splitathonExpression('bambi', 'yummyCornLol');
 		addSplitathonChar("dave-splitathon");
 	end

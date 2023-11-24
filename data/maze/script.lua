@@ -29,9 +29,7 @@ function onCreatePost()
     addLuaSprite('spotLight', true)
     setBlendMode('spotLight', 'add')
 
-    if string.lower(songName) == 'maze' then
-        setProperty('health', getProperty('health') - 0.2)
-    end
+    setProperty('health', getProperty('health') - 0.2)
 end
 
 local backgroundSAprites = {};
@@ -95,14 +93,13 @@ end
 function onStepHit()
 	if curStep == 466 then
 		setProperty('defaultCamZoom', getProperty('defaultCamZoom') + 0.2)
-		cameraFlash('camother', 'FFFFFF', 1)
+		cameraFlash('camother', 'FFFFFF', 1 / playbackRate)
 		makeLuaSprite("black", "", 0, 0)
 		makeGraphic("black", screenWidth * 2, screenHeight * 2, '000000')
 		setProperty("black.alpha", 0)
 		screenCenter("black")
 		addLuaSprite("black", true)
-		doTweenAlpha("black", "black", 0.6, 1, "")
-		doTweenAlpha('black', 'black', 0.6, 1, 'quadInOut')
+		doTweenAlpha('black', 'black', 0.6, 1 / playbackRate, 'quadInOut')
 		callOnLuas("createDialogue", {"maze_sub1", 0.02, 1})
 		callOnLuas("makeInvisibleNotes", {true})
 	end
@@ -123,13 +120,13 @@ function onStepHit()
 
 	if curStep == 528 then
 		setProperty('defaultCamZoom', 0.8)
-		cameraFlash('camother', 'FFFFFF', 1)
+		cameraFlash('camother', 'FFFFFF', 1 / playbackRate)
 		setProperty('black.alpha', 0)
 	end
 
 	if curStep == 832 then
 		setProperty('defaultCamZoom', getProperty('defaultCamZoom') + 0.2)
-		doTweenAlpha('black', 'black', 0.4, 1, 'quadInOut')
+		doTweenAlpha('black', 'black', 0.4, 1 / playbackRate, 'quadInOut')
 	end
 
 	if curStep == 838 then
@@ -158,38 +155,38 @@ function onStepHit()
 
 	if curStep == 908 then
 		local speed = getPropertyFromClass('Conductor.stepCrochet') / 1000 * 4;
-		doTweenAlpha('black', 'black', 1, speed, 'quadInOut')
+		doTweenAlpha('black', 'black', 1, speed / playbackRate, 'quadInOut')
 	end
 
 	if curStep == 912 and not spotLightPart then
 		--spotlight
 		spotLightPart = true;
 		setProperty('defaultCamZoom', getProperty('defaultCamZoom') - 0.1)
-		if flashingLights then cameraFlash('camother', 'FFFFFF', 1) end
+		if flashingLights then cameraFlash('camother', 'FFFFFF', 1 / playbackRate) end
 		updateSpotlight(false)
 
-		doTweenAlpha('black', 'black', 0.6, 1, 'quadInOut')
-		doTweenAlpha('fadeINNSPOT', 'spotLight', 0.7, 1, 'quadInOut')
+		doTweenAlpha('black', 'black', 0.6, 1 / playbackRate, 'quadInOut')
+		doTweenAlpha('fadeINNSPOT', 'spotLight', 0.7, 1 / playbackRate, 'quadInOut')
 	end
 
 	if curStep == 1168 then
 		spotLightPart = false;
-		doTweenAlpha('fadeINN', 'black', 0, 1, 'quadInOut')
-		doTweenAlpha('fadeOUTTSPOT', 'spotLight', 0, 1, 'quadInOut')
+		doTweenAlpha('fadeINN', 'black', 0, 1 / playbackRate, 'quadInOut')
+		doTweenAlpha('fadeOUTTSPOT', 'spotLight', 0, 1 / playbackRate, 'quadInOut')
 	end
 
 	if curStep == 1232 and flashingLights then
-		cameraFlash('camother', 'FFFFFF', 1)
+		cameraFlash('camother', 'FFFFFF', 1 / playbackRate)
 	end
 end
 
 function updateSpotlight(bfSinging)
 	if bfSinging then
-		doTweenX('moveSpotLightX', 'spotLight', getGraphicMidpointX('boyfriend') -getCharacterX('boyfriend') * 0.4, 0.66, 'circOut')
-		doTweenY('moveSpotLightY', 'spotLight', getGraphicMidpointY('boyfriend') -getGraphicMidpointY('boyfriend') -175, 0.66, 'circOut')
+		doTweenX('moveSpotLightX', 'spotLight', getGraphicMidpointX('boyfriend') -getCharacterX('boyfriend') * 0.4, 0.66 / playbackRate, 'circOut')
+		doTweenY('moveSpotLightY', 'spotLight', getGraphicMidpointY('boyfriend') -getGraphicMidpointY('boyfriend') -175, 0.66 / playbackRate, 'circOut')
 	end
 	if not bfSinging then
-		doTweenX('moveSpotLightX', 'spotLight', getGraphicMidpointX('dad') -getCharacterX('dad') * 1.225, 0.66, 'circOut')
-		doTweenY('moveSpotLightY', 'spotLight', getGraphicMidpointY('dad') -getGraphicMidpointY('dad') -125, 0.66, 'circOut')
+		doTweenX('moveSpotLightX', 'spotLight', getGraphicMidpointX('dad') -getCharacterX('dad') * 1.225, 0.66 / playbackRate, 'circOut')
+		doTweenY('moveSpotLightY', 'spotLight', getGraphicMidpointY('dad') -getGraphicMidpointY('dad') -125, 0.66 / playbackRate, 'circOut')
 	end
 end

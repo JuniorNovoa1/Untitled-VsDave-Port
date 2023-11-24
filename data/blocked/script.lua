@@ -14,7 +14,7 @@ end
 function onStepHit()
 	if curStep == 128 then
 		setProperty("defaultCamZoom", getProperty("defaultCamZoom") + 0.1)
-		cameraFlash("hud", "FFFFFF", 0.5)
+		cameraFlash("hud", "FFFFFF", 0.5 / playbackRate)
 		makeLuaSprite("black", "", 0, 0)
 		makeGraphic("black", screenWidth * 2, screenHeight * 2, '000000')
 		setProperty("black.alpha", 0)
@@ -38,17 +38,17 @@ function onStepHit()
 	end
 	if curStep == 256 then
 		setProperty("defaultCamZoom", getProperty("defaultCamZoom") - 0.1)
-		cameraFlash("hud", "FFFFFF", 1)
+		cameraFlash("hud", "FFFFFF", 1 / playbackRate)
 		doTweenAlpha("black", "black", 0, 1 / playbackRate, "")
 		callOnLuas("makeInvisibleNotes", {false})
 	end
 	if curStep == 640 then
-		cameraFlash("hud", "FFFFFF", 1)
+		cameraFlash("hud", "FFFFFF", 1 / playbackRate)
 		setProperty("black.alpha", 0.6)
 		setProperty("defaultCamZoom", getProperty("defaultCamZoom") + 0.1)
 	end
 	if curStep == 768 then
-		cameraFlash("hud", "FFFFFF", 1)
+		cameraFlash("hud", "FFFFFF", 1 / playbackRate)
 		setProperty("defaultCamZoom", getProperty("defaultCamZoom") - 0.1)
 		setProperty("black.alpha", 0)
 	end
@@ -80,7 +80,7 @@ function onStepHit()
 		doTweenAlpha("black", "black", 0.7, ((stepCrochet / 1000) * 8) / playbackRate, "")
 	end
 	if curStep == 1216 then
-		cameraFlash("hud", "FFFFFF", 0.5)
+		cameraFlash("hud", "FFFFFF", 0.5 / playbackRate)
 		removeLuaSprite("black", true)
 		setProperty("defaultCamZoom", getProperty("defaultCamZoom") - 0.3)
 	end

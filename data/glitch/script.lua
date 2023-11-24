@@ -16,8 +16,8 @@ function onStepHit()
 	end
 	if curStep == 464 then
 		setProperty("defaultCamZoom", 1)
-		doTweenX("dadLinearX", "dad", 25, 20, "")
-		doTweenY("dadLinearY", "dad", 50, 20, "")
+		doTweenX("dadLinearX", "dad", 25, 20 / playbackRate, "")
+		doTweenY("dadLinearY", "dad", 50, 20 / playbackRate, "")
 	end
 	if curStep == 848 then
 		--epliepsy off
@@ -33,8 +33,8 @@ function onStepHit()
 	end
 	if curStep == 1231 then
 		setProperty("defaultCamZoom", 0.8)
-		doTweenX("dadLinearX", "dad", 50, 1, "")
-		doTweenY("dadLinearY", "dad", 280, 1, "")
+		doTweenX("dadLinearX", "dad", 50, 1 / playbackRate, "")
+		doTweenY("dadLinearY", "dad", 280, 1 / playbackRate, "")
 	end
 end
 
@@ -57,7 +57,7 @@ function onEndSong()
 			setProperty("marcello.color", getProperty("dad.color"))
 			playSound("break_phone", 1)
 			playAnim("boyfriend", "hit", true)
-			runTimer("THROWPHONEMARCELLO", 5.5)
+			runTimer("THROWPHONEMARCELLO", 5.5 / playbackRate)
 		end
 		return Function_Stop;
 	else
@@ -66,6 +66,6 @@ function onEndSong()
 end
 
 function onTimerCompleted(tag, loops, loopsLeft)
-	if tag == "THROWPHONEMARCELLO" then playAnim("marcello", "throw_phone", true) runTimer("THROWPHONEMARCELLO2", 5.5) end
+	if tag == "THROWPHONEMARCELLO" then playAnim("marcello", "throw_phone", true) runTimer("THROWPHONEMARCELLO2", 5.5 / playbackRate) end
 	if tag == "THROWPHONEMARCELLO2" then hasSeenCutscene = true; runHaxeCode([[game.endSong();]]) end
 end

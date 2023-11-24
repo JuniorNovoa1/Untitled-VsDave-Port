@@ -25,6 +25,8 @@ function createDialogue(textString, typeSpeed, startTime, textSize, getFromLangu
 	if typeSpeed == nil then typeSpeed = 0.02; end
 	if startTime == nil then startTime = 1; end
 	if textSize == nil then textSize = 36; end
+	typeSpeed = typeSpeed / playbackRate;
+	startTime = startTime / playbackRate;
 
 	runHaxeCode([[
 		var dialogueTxt = new ModchartText(400, 55, "", 0);
