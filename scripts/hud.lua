@@ -152,10 +152,10 @@ function onCountdownTick(swagCounter)
 		introSoundPath = {"bambi", "_bambi"}
 	end
 	if string.lower(songName) == "exploitation" then
-		introSoundPath[1] = "ex";
+		introSoundPath = {"ex", "_weird"}
 	end
 	if string.lower(songName) == "overdrive" then
-		introSoundPath[1] = {"dave", "_dave"};
+		introSoundPath = {"dave", "_dave"};
 	end
 	if swagCounter == 0 then playSound("introSounds/"..introSoundPath[1].."/intro3"..introSoundPath[2], 1) end
 	if swagCounter == 1 then playSound("introSounds/"..introSoundPath[1].."/intro2"..introSoundPath[2], 1) end
