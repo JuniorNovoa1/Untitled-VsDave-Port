@@ -44,3 +44,31 @@ function switchDad(newChar, positionX, positionY, reposition, updateColor)
 	if positionX ~= 0 then positionX = positionX - getProperty("dad.positionArray[0]") setProperty("dad.x", positionX) end
 	if positionY ~= 0 then positionY = positionY - getProperty("dad.positionArray[1]") setProperty("dad.y", positionY) end
 end
+
+local createdScript = false;
+
+function sendNotification(title, description, soundEnabled) --scuffed ass code but it works
+	addHaxeLibrary("Process", 'sys.io')
+	addHaxeLibrary("File", 'sys.io')
+	addHaxeLibrary("Bytes", 'haxe.io')
+	addHaxeLibrary("Sys")
+	createdScript = true;
+	if title == "" or title == nil then title = "Title"; end
+	if description == "" or description == nil then Title = "Description"; end
+	if soundEnabled == nil then soundEnabled = true; end
+	if buildTarget == "mac" then
+		makeLuaText("stupidtextthatsneeded", "", 0, 0.0, 0.0)
+		runHaxeCode([[game.getLuaObject("stupidtextthatsneeded", true).text += Sys.getCwd();]])
+		saveFile(getTextString("stupidtextthatsneeded").."mods/"..currentModDirectory.."/macOSNotif.sh", [[osascript -e 'display notification "]]..description..[[" with title "]]..title..[["']], true)
+		runHaxeCode([[
+			game.getLuaObject("stupidtextthatsneeded", true).text += "mods/" + "]]..currentModDirectory..[[" + "/macOSNotif.sh";
+			Sys.command("chmod +x " + game.getLuaObject("stupidtextthatsneeded", true).text);
+			Sys.command(game.getLuaObject("stupidtextthatsneeded", true).text);
+		]])
+		if soundEnabled then playSound("macOSNotif", 1) end
+	end
+end
+
+function onDestroy()
+	if createdScript then deleteFile(getTextString("stupidtextthatsneeded"), true) end
+end

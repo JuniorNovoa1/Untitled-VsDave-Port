@@ -11,6 +11,23 @@ end
 local elapsedtime = 0.0;
 function onUpdate(elapsed)
 	elapsedtime = elapsedtime + elapsed;
+	runHaxeCode([[
+		if (game.unspawnNotes[0] != null)
+		{
+			var thing = 15000;
+
+			if (game.unspawnNotes[0].strumTime - Conductor.songPosition < thing)
+			{
+				var dunceNote = game.unspawnNotes[0];
+				//dunceNote.finishedGenerating = true;
+
+				game.notes.add(dunceNote);
+
+				var index = game.unspawnNotes.indexOf(dunceNote);
+				game.unspawnNotes.splice(index, 1);
+			}
+		}
+	]])
 	for i = 0, getProperty("playerStrums.length") do
 		setPropertyFromGroup("playerStrums", i, "x", ((screenWidth / 2) - (getPropertyFromGroup("playerStrums", i, "width") / 2)) + (math.sin((elapsedtime + (i))) * 300))
 		setPropertyFromGroup("playerStrums", i, "y", ((screenHeight / 2) - (getPropertyFromGroup("playerStrums", i, "height") / 2)) + (math.cos((elapsedtime + (i))) * 300))
