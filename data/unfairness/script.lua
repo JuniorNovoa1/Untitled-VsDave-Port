@@ -131,3 +131,9 @@ function onStepHit()
 		setProperty("iconP2.visible", false)
 	end
 end
+
+local anims = {"singLEFT", "singDOWN", "singUP", "singRIGHT"}
+function opponentNoteHit(membersIndex, noteData, noteType, isSustainNote)
+    local healthtolower = 0.02;
+    setProperty("health", getProperty("health") -(healthtolower / 3))
+end

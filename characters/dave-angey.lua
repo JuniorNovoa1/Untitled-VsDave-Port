@@ -12,6 +12,5 @@ end
 
 function propsforChar(char)
     setGraphicSize(char, math.ceil((getProperty(char..".width") * 0.8) / 1.02))
-    --updateHitbox(char)
-    setProperty(char..".antialiasing", false)
+    playAnim(char, "idle", true)
 end

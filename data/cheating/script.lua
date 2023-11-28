@@ -120,3 +120,20 @@ function onStepHit()
 		doTweenAlpha("black", "black", 0, 1 / playbackRate, "")
 	end
 end
+
+local anims = {"singLEFT", "singDOWN", "singUP", "singRIGHT"}
+function opponentNoteHit(membersIndex, noteData, noteType, isSustainNote)
+    local healthtolower = 0.02;
+    if altAnim then 
+        healthtolower = 0.005;
+        setProperty("dad.holdTimer", 0)
+        playAnim("dad", anims[noteData+1], true)
+    end
+    setProperty("health", getProperty("health") -healthtolower)
+end
+function goodNoteHit(membersIndex, noteData, noteType, isSustainNote)
+    if altAnim then
+        setProperty("boyfriend.holdTimer", 0)
+        playAnim("boyfriend", anims[noteData+1], true)
+    end
+end

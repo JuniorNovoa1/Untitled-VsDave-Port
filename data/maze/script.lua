@@ -29,7 +29,7 @@ function onCreatePost()
     addLuaSprite('spotLight', true)
     setBlendMode('spotLight', 'add')
 
-    setProperty('health', getProperty('health') - 0.2)
+    if isStoryMode then setProperty('health', getProperty('health') - 0.2) end
 end
 
 local backgroundSAprites = {};
