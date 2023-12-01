@@ -5,6 +5,35 @@ function onCreate()
 	addHaxeLibrary("Sys")
 end
 
+function onCreatePost()
+	for i = 0, getProperty("unspawnNotes.length") do
+		if getPropertyFromGroup("unspawnNotes", i, "noteType") == "phone" or getPropertyFromGroup("unspawnNotes", i, "noteType") == "phone-alt" then
+			setPropertyFromGroup("unspawnNotes", i, "multSpeed", returnScrollSpeed(1.08))
+		end
+		if string.lower(songName) == "unfairness" then
+			if getRandomInt(0, 120) == 1 then
+				setPropertyFromGroup("unspawnNotes", i, "multSpeed", returnScrollSpeed(0.1))
+			else 
+				setPropertyFromGroup("unspawnNotes", i, "multSpeed", returnScrollSpeed(getRandomFloat(1, 3)))
+			end
+		end
+		if string.lower(songName) == "exploitation" then
+			if getRandomInt(0, 484) == 1 then
+				setPropertyFromGroup("unspawnNotes", i, "multSpeed", returnScrollSpeed(0.1))
+			else 
+				setPropertyFromGroup("unspawnNotes", i, "multSpeed", returnScrollSpeed(getRandomFloat(2.9, 3.6)))
+			end
+		end
+		setPropertyFromGroup("unspawnNotes", i, "multSpeed", returnScrollSpeed(1 * getRandomFloat(0.8, 1.2)))
+	end
+end
+function returnScrollSpeed(newScrollSpeed)
+	local change = 1; if downscroll then change = -1; end
+	return newScrollSpeed; --cancels shit after
+	--return change * 0.45 * (getProperty("songSpeed") * newScrollSpeed);
+	--return change * 0.45 * math.floor((getProperty("songSpeed") * newScrollSpeed));
+end
+
 function onGameOver()
 	if string.lower(songName) ~= "exploitation" then return; end
 	local expungedLines = {

@@ -4,7 +4,9 @@ function onCreatePost() --this lua file just makes the game look like vsdave lol
     addHaxeLibrary('FlxMath', 'flixel.math')
 	addHaxeLibrary('FlxTween', 'flixel.tweens')
 
-	makeLuaSprite("healthBarDave", "ui/healthBar", 0, 0)
+	local healthBarImgPart = "healthBar";
+	if string.lower(songName) == "exploitation" then healthBarImgPart = "HELLthBar"; end
+	makeLuaSprite("healthBarDave", "ui/"..healthBarImgPart, 0, 0)
 	setObjectCamera("healthBarDave", 'hud')
 	addLuaSprite("healthBarDave", false)
 	setObjectOrder("healthBarDave", getObjectOrder("healthBar"))
