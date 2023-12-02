@@ -24,7 +24,7 @@ function onCreatePost()
 				setPropertyFromGroup("unspawnNotes", i, "multSpeed", returnScrollSpeed(getRandomFloat(2.9, 3.6)))
 			end
 		end
-		setPropertyFromGroup("unspawnNotes", i, "multSpeed", returnScrollSpeed(1 * getRandomFloat(0.8, 1.2)))
+		--("unspawnNotes", i, "multSpeed", returnScrollSpeed(1 * getRandomFloat(0.7, 1.01)))
 	end
 end
 function returnScrollSpeed(newScrollSpeed)
