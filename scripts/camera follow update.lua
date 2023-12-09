@@ -2,7 +2,7 @@ local camMovementType = ''; --("", regular camera movement), ("charSize", moves 
 local bfCamIdle = {};
 local dadCamIdle = {};
 
-local offsets = 30;
+local offsets = 20; --offset is 20 in vsdave
 local posBFX = {}
 local posBFY = {}
 

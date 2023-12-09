@@ -77,6 +77,7 @@ function onCreatePost() --this lua file just makes the game look like vsdave lol
 	if string.lower(songName) == "exploitation" then
 		runHaxeCode([[Application.current.window.title = "[DATA EXPUNGED]";]])
 	end
+	setProperty("cameraSpeed", 0.0165 * framerate + 0.01) --fps based camera speed (like VsDave)
 end
 function onDestroy()
 	runHaxeCode([[Application.current.window.title = "Friday Night Funkin': Psych Engine";]])
@@ -123,8 +124,6 @@ function onUpdate(elapsed)
 	updateHitbox('iconP22')
 end
 function onUpdatePost(elapsed)
-	local translatedScore = getDataFromSave("UntitledVsDavePortSettings", "textInLanguages")
-	setTextString("scoreTxt", tostring(translatedScore[string.lower(getDataFromSave("UntitledVsDavePortSettings", "lang"))]["play_score"])..tostring(score).." | "..tostring(translatedScore[string.lower(getDataFromSave("UntitledVsDavePortSettings", "lang"))]["play_miss"])..tostring(misses).." | "..tostring(translatedScore[string.lower(getDataFromSave("UntitledVsDavePortSettings", "lang"))]["play_accuracy"])..tostring(math.floor(getProperty('ratingPercent') * 100, 2)).."%")
 	setProperty("iconP1.scale.x", getProperty("iconP12.scale.x"))
 	setProperty("iconP1.scale.y", getProperty("iconP12.scale.y"))
 	setProperty("iconP2.scale.x", getProperty("iconP22.scale.x"))
@@ -133,6 +132,28 @@ function onUpdatePost(elapsed)
 	setProperty("iconP2.x", getProperty("iconP22.x"))
 	updateHitbox('iconP1')
 	updateHitbox('iconP2')
+	local translatedScore = getDataFromSave("UntitledVsDavePortSettings", "textInLanguages")
+	setTextString("scoreTxt", tostring(translatedScore[string.lower(getDataFromSave("UntitledVsDavePortSettings", "lang"))]["play_score"])..tostring(score).." | "..tostring(translatedScore[string.lower(getDataFromSave("UntitledVsDavePortSettings", "lang"))]["play_miss"])..tostring(misses).." | "..tostring(translatedScore[string.lower(getDataFromSave("UntitledVsDavePortSettings", "lang"))]["play_accuracy"])..tostring(math.floor(getProperty('ratingPercent') * 100, 2)).."%")
+
+	--coolio shit below
+	runHaxeCode([[
+		var scoreLerped = 0.0;
+		var missesLerped = 0.0;
+		var accuracyLerped = 0.0;
+		if (getVar("scoreLerped") != null) 
+			scoreLerped = getVar("scoreLerped");
+		if (getVar("missesLerped") != null) 
+			missesLerped = getVar("missesLerped");
+		if (getVar("accuracyLerped") != null) 
+			accuracyLerped = getVar("accuracyLerped");
+		setVar("scoreLerped", FlxMath.roundDecimal(FlxMath.lerp(game.songScore, scoreLerped, 0.77), 0));
+		if (game.songScore > 0)
+			setVar("scoreLerped", FlxMath.roundDecimal(FlxMath.lerp(game.songScore + 2, scoreLerped, 0.77), 0));
+		setVar("missesLerped", Std.int(FlxMath.lerp(game.songMisses, missesLerped, 0.66)));
+		setVar("accuracyLerped", FlxMath.lerp(game.ratingPercent, accuracyLerped, 0.1));
+	]])
+	local lerpedScores = {getProperty("scoreLerped"), getProperty("missesLerped"), getProperty("accuracyLerped")}
+	--setTextString("scoreTxt", tostring(translatedScore[string.lower(getDataFromSave("UntitledVsDavePortSettings", "lang"))]["play_score"])..tostring(lerpedScores[1]).." | "..tostring(translatedScore[string.lower(getDataFromSave("UntitledVsDavePortSettings", "lang"))]["play_miss"])..tostring(lerpedScores[2]).." | "..tostring(translatedScore[string.lower(getDataFromSave("UntitledVsDavePortSettings", "lang"))]["play_accuracy"])..tostring(math.floor(lerpedScores[3] * 100, 2)).."%")
 end
 
 function goodNoteHit(membersIndex, noteData, noteType, isSustainNote)
@@ -233,8 +254,6 @@ function onStepHit()
 end
 
 function onBeatHit()
-	local funny = math.max(math.min(getProperty('health'),1.9),0.1)
-
 	if not inFiveNights then
 		runHaxeCode([[
 			var funny = Math.max(Math.min(game.healthBar.value, 1.9), 0.1);
@@ -246,6 +265,7 @@ function onBeatHit()
 		setGraphicSize('iconP12', math.floor(getProperty('iconP12.width') + (50 * ((2 - funny) + 0.1))), math.floor(getProperty('iconP12.height') - (25 * ((2 - funny) + 1))))
 	end
 	
+	local funny = math.max(math.min(getProperty('health'),1.9),0.1)
 	local mult = 30;
 	local multWHYY = 17.5;
 	setProperty("iconP12.x", getProperty("iconP12.x") + (funny * mult))

@@ -24,8 +24,16 @@ function onCreatePost()
 				setPropertyFromGroup("unspawnNotes", i, "multSpeed", returnScrollSpeed(getRandomFloat(2.9, 3.6)))
 			end
 		end
-		--("unspawnNotes", i, "multSpeed", returnScrollSpeed(1 * getRandomFloat(0.7, 1.01)))
+		--setPropertyFromGroup("unspawnNotes", i, "multSpeed", returnScrollSpeed(getPropertyFromGroup("unspawnNotes", i, "multSpeed") + getRandomFloat(-0.3, 0)))
+		--setPropertyFromGroup("unspawnNotes", i, "multSpeed", returnScrollSpeed(getPropertyFromGroup("unspawnNotes", i, "multSpeed") + getRandomFloat(-0.3, 0.3)))
+		--setPropertyFromGroup("unspawnNotes", i, "multSpeed", returnScrollSpeed(1 * getRandomFloat(0.7, 1.01)))
 	end
+end
+function onUpdate(elapsed)
+	--[[setPropertyFromClass("ClientPrefs", "downScroll", true)
+	for i = 0, getProperty("notes.length") do
+		setPropertyFromGroup("notes", i, "downScroll", true)
+	end--]]
 end
 function returnScrollSpeed(newScrollSpeed)
 	local change = 1; if downscroll then change = -1; end

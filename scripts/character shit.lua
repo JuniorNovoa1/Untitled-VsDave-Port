@@ -10,11 +10,18 @@ function onUpdate(elapsed)
 	canFloat = getDataFromSave("UntitledVsDavePortSettings", "canFloat")
 
 	if not canFloat then return; end
+	local toy = -100 + -math.sin((curStep / 9.5) * 2) * 30 * 5;
+	local tox = -330 -math.cos((curStep / 9.5)) * 100;
 	--[[if dadName == "dave-angey" then setProperty("dad.y", getProperty("dad.y") + ((math.sin(elapsedtime) * 0.2))) end
 	if boyfriendName == "bf-3d" then setProperty("boyfriend.y", getProperty("boyfriend.y") + ((math.sin(elapsedtime) * 0.2))) end--]]
 	for i = 1, #funnyFloatyBoys do
 		if dadName == funnyFloatyBoys[i] then
-			setProperty("dad.y", getProperty("dad.y") + ((math.sin(elapsedtime) * 0.2)))
+			if dadName == "expunged" then
+				setProperty("dad.x", getProperty("dad.x") + ((tox - getProperty("dad.x")) / 12))
+				setProperty("dad.y", getProperty("dad.y") + ((toy - getProperty("dad.y")) / 12))
+			else
+				setProperty("dad.y", getProperty("dad.y") + ((math.sin(elapsedtime) * 0.2)))
+			end
 		end
 		if boyfriendName == funnyFloatyBoys[i] then
 			setProperty("boyfriend.y", getProperty("boyfriend.y") + ((math.sin(elapsedtime) * 0.2)))
