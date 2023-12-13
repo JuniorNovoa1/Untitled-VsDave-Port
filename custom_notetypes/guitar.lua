@@ -35,7 +35,7 @@ end
 function onUpdatePost(elapsed)
 	for i = 0, getProperty('notes.length')-1 do
 		if getPropertyFromGroup("notes", i, "noteType") == "guitar" then
-			setPropertyFromGroup("notes", i, "x", getPropertyFromGroup("opponentStrums", 4, "x") + 15)
+			setPropertyFromGroup("notes", i, "x", getPropertyFromGroup("opponentStrums", 4, "x"))
 			setPropertyFromGroup("notes", i, "alpha", getPropertyFromGroup("opponentStrums", 4, "alpha"))
 			local earlyHitMult = 0.01;
             if getPropertyFromGroup('notes', i, 'strumTime') > getPropertyFromClass('Conductor', 'songPosition') - (getPropertyFromClass('Conductor', 'safeZoneOffset') * getPropertyFromGroup('notes', i, 'lateHitMult')) and getPropertyFromGroup('notes', i, 'strumTime') < getPropertyFromClass('Conductor', 'songPosition') + (getPropertyFromClass('Conductor', 'safeZoneOffset') * earlyHitMult) then

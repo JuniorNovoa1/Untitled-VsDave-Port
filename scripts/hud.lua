@@ -78,6 +78,13 @@ function onCreatePost() --this lua file just makes the game look like vsdave lol
 		runHaxeCode([[Application.current.window.title = "[DATA EXPUNGED]";]])
 	end
 	setProperty("cameraSpeed", 0.0165 * framerate + 0.01) --fps based camera speed (like VsDave)
+
+	if getDataFromSave("UntitledVsDavePortSettings", "antiPsychEngine", false) then
+		for i = 0, getProperty("unspawnNotes.length") do
+			setPropertyFromGroup("unspawnNotes", i, "hitHealth", getPropertyFromGroup("unspawnNotes", i, "hitHealth") * 1.5)
+			setPropertyFromGroup("unspawnNotes", i, "missHealth", getPropertyFromGroup("unspawnNotes", i, "missHealth") * 0.6)
+		end
+	end
 end
 function onDestroy()
 	runHaxeCode([[Application.current.window.title = "Friday Night Funkin': Psych Engine";]])

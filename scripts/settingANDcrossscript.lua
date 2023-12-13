@@ -38,6 +38,7 @@ function onCreate()
 	setDataFromSave("UntitledVsDavePortSettings", "screenShake", convertStringToType(textOptionsArray[4], "bool"))
 	setDataFromSave("UntitledVsDavePortSettings", "charSelect", convertStringToType(textOptionsArray[5], "bool"))
 	setDataFromSave("UntitledVsDavePortSettings", "selfAwareness", convertStringToType(textOptionsArray[6], "bool"))
+	setDataFromSave("UntitledVsDavePortSettings", "antiPsychEngine", convertStringToType(textOptionsArray[7], "bool"))
 	--dont mess with this shit below
 	setDataFromSave("UntitledVsDavePortSettings", "textInLanguages", textInLanguages)
 	setDataFromSave("UntitledVsDavePortSettings", "defaultSettings", defaultSettings)

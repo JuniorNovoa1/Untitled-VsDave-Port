@@ -13,6 +13,7 @@ function onUpdate(elapsed)
     if lockCam then triggerEvent("Camera Follow Pos", ""..prevPos[1], ""..prevPos[2]) end
 end
 
+local xPosSytrumsd = 271;
 function onStepHit()
     if curStep == 261 then
         setProperty("defaultCamZoom", getProperty("defaultCamZoom") + 0.2)
@@ -158,14 +159,13 @@ function onStepHit()
         addLuaSprite("highway", false)
 						
         callOnLuas("changeNoteSkin", {false, "NOTE_gh"})
-        local xPosSytrumsd = 266;
         for i = 0, 1 do
             setPropertyFromGroup("strumLineNotes", i, "x", getPropertyFromGroup("strumLineNotes", i, "x") + xPosSytrumsd)
         end
         for i = 2, 3 do
             setPropertyFromGroup("strumLineNotes", i, "x", getPropertyFromGroup("strumLineNotes", i, "x") + (xPosSytrumsd + 114))
         end
-        setPropertyFromGroup("opponentStrums", 4, "x", getPropertyFromGroup("opponentStrums", 4, "x") - 225)
+        setPropertyFromGroup("opponentStrums", 4, "x", getPropertyFromGroup("opponentStrums", 4, "x") - 220)
         for i = 4, 7 do
             setPropertyFromGroup("strumLineNotes", i, "x", getPropertyFromGroup("strumLineNotes", i, "x") - 310)
             setPropertyFromGroup("strumLineNotes", i, "alpha", 0)
@@ -233,7 +233,6 @@ function onStepHit()
         setProperty("defaultCamZoom", getProperty("defaultCamZoom") - 0.9)
         cameraFlash("hud", "FFFFFF", 1 / playbackRate)
         doTweenAlpha("black", "black", 0, 1 / playbackRate, "")
-        local xPosSytrumsd = 266;
         for i = 0, 1 do
             setPropertyFromGroup("strumLineNotes", i, "x", getPropertyFromGroup("strumLineNotes", i, "x") - xPosSytrumsd)
         end

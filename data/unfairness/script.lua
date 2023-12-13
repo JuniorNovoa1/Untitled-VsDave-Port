@@ -11,8 +11,8 @@ end
 local elapsedtime = 0.0;
 function onUpdate(elapsed)
 	elapsedtime = elapsedtime + elapsed;
-	runHaxeCode([[
-		if (game.unspawnNotes[0] != null)
+	--runHaxeCode([[ fucked
+	--[[if (game.unspawnNotes[0] != null)
 		{
 			var thing = 15000;
 
@@ -27,7 +27,7 @@ function onUpdate(elapsed)
 				game.unspawnNotes.splice(index, 1);
 			}
 		}
-	]])
+	]]--)
 	for i = 0, getProperty("playerStrums.length") do
 		setPropertyFromGroup("playerStrums", i, "x", ((screenWidth / 2) - (getPropertyFromGroup("playerStrums", i, "width") / 2)) + (math.sin((elapsedtime + (i))) * 300))
 		setPropertyFromGroup("playerStrums", i, "y", ((screenHeight / 2) - (getPropertyFromGroup("playerStrums", i, "height") / 2)) + (math.cos((elapsedtime + (i))) * 300))

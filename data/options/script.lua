@@ -1,4 +1,5 @@
-local options = {"Language", "Compatible mode", "Eyesores", "Screenshake", "Character Select", "Self Awareness"}
+local options = {"Language", "Compatible mode", "Eyesores", "Screenshake", "Character Select", "Self Awareness", "Anti PsychEngine"}
+local textOptionsArrayDefault = {};
 local textOptionsArray = {};
 local curSelectedOption = 1;
 local curSelectedOptionUpDown = 1;
@@ -9,12 +10,25 @@ local selectAbleOptions = {--1. option name. 2. options
 	["eyesores"] = {"true", "false"},
 	["screenshake"] = {"true", "false"},
 	["character select"] = {"true", "false"},
-	["self awareness"] = {"true", "false"}
+	["self awareness"] = {"true", "false"},
+	["anti psychengine"] = {"true", "false"}
 }
 
 function onCreate()
+	local textOptionsDefault = getTextFromFile("defaultOptions.txt", false)
 	local textOptions = getTextFromFile("defaultOptions.txt", false)
 	local curCharacters = "";
+	local curCharacters2 = "";
+	for i = 1, #textOptionsDefault do
+		if textOptionsDefault:sub(i, i) == "," then
+			curCharacters2 = string.gsub(curCharacters2, "", "")
+			textOptionsArrayDefault[#textOptionsArrayDefault + 1] = curCharacters2;
+			curCharacters2 = "";
+		else
+			local currentCharacertsy = textOptionsDefault:sub(i, i);
+			curCharacters2 = curCharacters2..currentCharacertsy;
+		end
+	end
 	if checkFileExists(currentModDirectory.."/options.txt", false) then
 		textOptions = getTextFromFile("options.txt", false)
 		for i = 1, #textOptions do
@@ -27,17 +41,9 @@ function onCreate()
 				curCharacters = curCharacters..currentCharacertsy;
 			end
 		end
-	else
-		for i = 1, #textOptions do
-			if textOptions:sub(i, i) == "," then
-				curCharacters = string.gsub(curCharacters, "", "")
-				textOptionsArray[#textOptionsArray + 1] = curCharacters;
-				curCharacters = "";
-			else
-				local currentCharacertsy = textOptions:sub(i, i);
-				curCharacters = curCharacters..currentCharacertsy;
-			end
-		end
+	end
+	for i = 1, #textOptionsArrayDefault do
+		if textOptionsArray[i] == nil then textOptionsArray[i] = textOptionsArrayDefault[i] end
 	end
 
 	setProperty("skipCountdown", true)
