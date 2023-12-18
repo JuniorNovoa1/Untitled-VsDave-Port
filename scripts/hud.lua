@@ -3,6 +3,7 @@ function onCreatePost() --this lua file just makes the game look like vsdave lol
 	addHaxeLibrary("Math")
     addHaxeLibrary('FlxMath', 'flixel.math')
 	addHaxeLibrary('FlxTween', 'flixel.tweens')
+	addHaxeLibrary("FlxColor", 'flixel.util')
 
 	local healthBarImgPart = "healthBar";
 	if string.lower(songName) == "exploitation" then healthBarImgPart = "HELLthBar"; end
@@ -21,12 +22,9 @@ function onCreatePost() --this lua file just makes the game look like vsdave lol
 
 	makeLuaSprite("iconP12", "icons/missing", 0, 0)
 	makeLuaSprite("iconP22", "icons/missing", 0, 0)
-	--setProperty("timeBarBG.color", getColorFromHex("808080"))
-	setProperty("timeBar.color", getColorFromHex("90ee90"))
 
 	local font = "comic.ttf";
 	local fontScaler = 1;
-
 
 	local credits = "";
 	local creditsText = false;
@@ -89,25 +87,19 @@ end
 function onDestroy()
 	runHaxeCode([[Application.current.window.title = "Friday Night Funkin': Psych Engine";]])
 end
-
 function onSongStart()
-	doTweenAlpha("timeBarDave", "timeBarDave", 1, 0.5 / playbackRate, "circOut")
+	setProperty("timeBarBG.color", getColorFromHex("1F2022"))
+	setProperty("timeBar.color", getColorFromHex("90ee90"))
+	screenCenter("timeBar", 'x')
 end
-function onEndSong()
-	removeLuaSprite("timeBarDave", true)
-end
-
+function onEndSong() removeLuaSprite("timeBarDave", true) end
 function onUpdate(elapsed)
 	setProperty("healthBarDave.x", getProperty("healthBar.x") - 4)
 	setProperty("healthBarDave.y", getProperty("healthBar.y") - 4)
-	--[[screenCenter("timeBar", 'x')
-	setObjectCamera("timeBar", getObjectOrder("timeBarBG") - 1)
-	setProperty("timeBar.y", getProperty("timeBar.y") - 1)--]]
 	if luaSpriteExists("timeBarDave") then
-		scaleObject("timeBarBG", 1.48, 0.68, true)
-		scaleObject("timeBar", 1.48, 0.68, true)
-		setProperty("timeBar.x", getProperty("timeBarDave.x") + 8.9)
-		setProperty("timeBarDave.y", getProperty("timeBar.y") - 6.35)
+		setProperty("timeBarDave.x", getProperty("timeBarBG.x"))
+		setProperty("timeBarDave.y", getProperty("timeBarBG.y"))
+		setProperty("timeBarDave.alpha", getProperty("timeBarBG.alpha"))
 	end
 	runHaxeCode([[
 		var thingy = 0.88;
