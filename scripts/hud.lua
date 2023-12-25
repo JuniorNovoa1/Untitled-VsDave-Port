@@ -88,8 +88,7 @@ function onDestroy()
 	runHaxeCode([[Application.current.window.title = "Friday Night Funkin': Psych Engine";]])
 end
 function onSongStart()
-	setProperty("timeBarBG.color", getColorFromHex("1F2022"))
-	setProperty("timeBar.color", getColorFromHex("90ee90"))
+	runHaxeCode([[game.timeBar.createFilledBar(Std.parseInt(0xFF808080), Std.parseInt(0xFF00FF00));]])
 	screenCenter("timeBar", 'x')
 end
 function onEndSong() removeLuaSprite("timeBarDave", true) end
@@ -253,6 +252,9 @@ function onStepHit()
 end
 
 function onBeatHit()
+	--[[if curBeat % 2 == 0 then
+		setPropertyFromGroup("playerStrums", 0, "downScroll", not getPropertyFromClass("ClientPrefs", "downScroll"))
+	end--]]
 	if not inFiveNights then
 		runHaxeCode([[
 			var funny = Math.max(Math.min(game.healthBar.value, 1.9), 0.1);

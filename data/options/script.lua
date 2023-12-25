@@ -13,6 +13,10 @@ local selectAbleOptions = {--1. option name. 2. options
 	["self awareness"] = {"true", "false"},
 	["anti psychengine"] = {"true", "false"}
 }
+local optionDescriptions = {--1. option name. 2. options
+	["language"] = "What language to be used in songs",
+	["compatible mode"] = "If enabled, prevents crashes on some devices."
+}
 
 function onCreate()
 	local textOptionsDefault = getTextFromFile("defaultOptions.txt", false)
@@ -73,6 +77,40 @@ function onSongStart()
 	for i = 1, #textOptionsArray do
 		createOptionBox(textOptionsArray[i], i)
 	end
+
+	--[[makeAnimatedLuaSprite("optionsSide", "optionsSide", 0, 0)
+	addAnimationByPrefix("optionsSide", "idle", "idle", 6, true)
+	setObjectCamera("optionsSide", 'other')
+	screenCenter("optionsSide", 'xy')
+	addLuaSprite("optionsSide", false)
+
+	makeLuaText("optionsDescription", "This option enables fortnite in the fort in the the", 268, 1000, getProperty("optionsSide.y"))
+	setObjectCamera("optionsDescription", 'other')
+	setTextSize("optionsDescription", 28)
+	setTextAlignment("optionsDescription", 'left')
+	setTextFont("optionsDescription", "comic.ttf")
+	addLuaText("optionsDescription")-]]
+
+	--[[makeLuaSprite("optionDescriptionBorder", "", 0, 0)
+	makeGraphic("optionDescriptionBorder", 928, 228, '000000')
+	setObjectCamera("optionDescriptionBorder", 'other')
+	screenCenter("optionDescriptionBorder", 'xy')
+	setProperty("optionDescriptionBorder.alpha", 0.5)
+	addLuaSprite("optionDescriptionBorder", false)
+
+	makeLuaText("optionsDescription", "This option enables fortnite in the fort in the the", 0, 0, 0)
+	setObjectCamera("optionsDescription", 'other')
+	setTextSize("optionsDescription", 36)
+	setTextAlignment("optionsDescription", 'center')
+	setTextFont("optionsDescription", "comic.ttf")
+	updateHitbox("optionsDescription")
+	screenCenter("optionsDescription", 'xy')
+	setProperty("optionsDescription.y", getProperty("optionsDescription.y") + 100)
+	addLuaText("optionsDescription")
+
+	makeGraphic("optionDescriptionBorder", getTextWidth("optionsDescription") + 28, getProperty("optionsDescription.height"), '000000')
+	setProperty("optionDescriptionBorder.y", getProperty("optionsDescription.y"))
+	screenCenter("optionDescriptionBorder", 'x')--]]
 
 	for i = 1, #selectAbleOptions[string.lower(options[curSelectedOptionUpDown])] do
 		if string.lower(selectAbleOptions[string.lower(options[curSelectedOptionUpDown])][i]) == string.lower(textOptionsArray[curSelectedOptionUpDown]) then curSelectedOption = i; end
