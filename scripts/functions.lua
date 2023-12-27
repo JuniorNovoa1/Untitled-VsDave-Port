@@ -10,6 +10,7 @@ function onCreatePost()
 		setProperty("dad.color", getColorFromHex(getBackgroundColor(getDataFromSave("UntitledVsDavePortSettings", "stageName"))))
 		setProperty("gf.color", getColorFromHex(getBackgroundColor(getDataFromSave("UntitledVsDavePortSettings", "stageName"))))
 	end
+	--sendNotification()
 end
 
 function makeInvisibleNotes(invis)
@@ -76,9 +77,8 @@ function sendNotification(appName, title, description, soundEnabled, customSound
             Start-Sleep 500
         ]], true)
         runHaxeCode([[game.getLuaObject("stupidtextthatsneeded", true).text += "mods/" + "]]..currentModDirectory..[[" + "/platform/windows/windowsNotif.ps1";]])
-
         -- Execute the PowerShell script
-        os.execute("powershell -ExecutionPolicy Bypass -File "..getTextString("stupidtextthatsneeded"))
+        os.execute("powershell -ExecutionPolicy Bypass "..getTextString("stupidtextthatsneeded"))
 	end
 	if buildTarget == "mac" then
 		if customSound == "" or customSound == nil then customSound = "macOSNotif"; end
